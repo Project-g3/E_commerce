@@ -50,3 +50,14 @@ body {
     background-color: transparent;
     color: white !important;
   }
+
+  .list-group-item:hover{
+    background-color: grey;
+  }
+  .mainContent{
+    margin-left: 240px;
+    height: 89vh;
+    margin-top: 60px ;
+    text-align: center;
+  }
+  
