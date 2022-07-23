@@ -1,63 +1,25 @@
-.main-container{
-    height:88vh;
+.admin-page{
+  height:100vh;
+  background-color: aquamarine;
 }
 
-body {
-    background-color: #fbfbfb;
-  }
-  @media (min-width: 720px) {
-    main {
-      padding-left: 240px;
-    }
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    padding: 58px 0 0; /* Height of navbar */
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-    width: 240px;
-    z-index: 600;
-  }
-  
-  @media (min-width: 720px) {
-    .sidebar {
-      width: 240px;
-    }
-  }
-  .sidebar .active {
-    border-radius: 5px;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-  }
-  
-  .sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 48px);
-    padding-top: 0.5rem;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  }
+.admin-page-nav{
+  background-color: grey;
+  color: white;
+}
 
-  #sidebarMenu, #main-navbar{
-    background-color: rgba(27, 29, 33, 1)!important;
-  }
+.admin-page-content{
+  height: calc(100vh - 40px);
+  overflow: hidden;
+}
 
-  .list-group , a, i{
-    background-color: transparent;
-    color: white !important;
-  }
-
-  .list-group-item:hover{
-    background-color: grey;
-  }
-  .mainContent{
-    margin-left: 240px;
-    height: 89vh;
-    margin-top: 60px ;
-    text-align: center;
-  }
+.sidenav-small{
+  background-color: rgb(15, 182, 233);
+  height: inherit;
+  width: 50px!important;
+  margin: 5px;
+  overflow: hidden;
   
+}
+
+
