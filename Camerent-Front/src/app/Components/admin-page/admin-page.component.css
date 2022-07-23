@@ -1,25 +1,48 @@
+/* universal */
+.rounded{
+  border-radius: 5px;
+}
+.body-color{
+  background-color: rgb(42, 42, 46);
+}
+.container-color{
+  background-color: rgba(27, 29, 33, 1);
+}
+
 .admin-page{
   height:100vh;
-  background-color: aquamarine;
+  overflow: hidden;
 }
 
 .admin-page-nav{
-  background-color: grey;
-  color: white;
+  
+  /* color: white; */
 }
 
 .admin-page-content{
   height: calc(100vh - 40px);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .sidenav-small{
-  background-color: rgb(15, 182, 233);
-  height: inherit;
-  width: 50px!important;
-  margin: 5px;
-  overflow: hidden;
   
+  height: inherit;
+  width: 60px!important;
+  margin: 5px;
+  /* overflow: hidden; */
+  padding: 4px;
+  
+}
+.smallicon:hover{
+  background-color: rgb(110, 110, 110);
+  padding: 3px;
 }
 
 
+
+/* right content */
+
+.right-content{
+  
+  margin: 5px 10px 5px 5px;
+}
