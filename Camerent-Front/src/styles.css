@@ -1,4 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-p{
+p,h1,h2,h3,h4,h5,h6{
     color:white;
+}
+
+.headings{
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+}
+/* universal */
+.rounded {
+    border-radius: 5px;
+}
+
+.body-color {
+    background-color: rgb(42, 42, 46);
+}
+
+.container-color {
+    background-color: rgba(27, 29, 33, 1);
 }
