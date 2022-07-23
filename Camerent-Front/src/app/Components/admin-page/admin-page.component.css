@@ -9,9 +9,16 @@
   background-color: rgba(27, 29, 33, 1);
 }
 
+/* *************************************** */
+
+/* Admin-navbar */
+.logout:hover{
+  transform: scale(1.2);
+}
+
 .admin-page{
-  height:100vh;
-  overflow: hidden;
+  min-height:100vh;
+  /* overflow: hidden; */
 }
 
 .admin-page-nav{
