@@ -10,33 +10,50 @@
   <div class="row admin-page-content">
     <div class=" sidenav-small rounded container-color">
       <div class="smallicon rounded my-3 mx-1">
-        <a href="" ><img class="" src="assets/admindash/sidenav_Nav/dashboard.png" width="100%" style="padding: 6px;"></a>
+        <a routerLink="dashboard" ><img class="" src="assets/admindash/sidenav_Nav/dashboard.png" width="100%" style="padding: 6px;"></a>
 
       </div>
       <div class="smallicon rounded my-3 mx-1">
-        <img class="" src="assets/admindash/sidenav_Nav/products.png" width="100%" style="padding: 6px;" >
+        <a routerLink="products" >
+          <img class="" src="assets/admindash/sidenav_Nav/products.png" width="100%" style="padding: 6px;" >
+        </a>
+        
       </div>
       <div class="smallicon rounded my-3 mx-1">
-        <img class="" src="assets/admindash/sidenav_Nav/category.png" width="100%" style="padding: 6px;" >
+        <a routerLink="category" >
+          <img class="" src="assets/admindash/sidenav_Nav/category.png" width="100%" style="padding: 6px;" >
+        </a>
       </div>
       <div class="smallicon rounded my-3 mx-1">
-        <img class="" src="assets/admindash/sidenav_Nav/orders.png" width="100%" style="padding: 6px;" >
+        <a routerLink="orders" >
+          <img class="" src="assets/admindash/sidenav_Nav/orders.png" width="100%" style="padding: 6px;" >
+        </a>
+        
       </div>
       <div class="smallicon rounded my-3 mx-1">
-        <img class="" src="assets/admindash/sidenav_Nav/customers.png" width="100%" style="padding: 6px;" >
+        <a routerLink="customers" >
+          <img class="" src="assets/admindash/sidenav_Nav/customers.png" width="100%" style="padding: 6px;" >
+        </a>
+        
       </div>
       <div class="smallicon rounded my-3 mx-1">
-        <img class="" src="assets/admindash/sidenav_Nav/staff.png" width="100%" style="padding: 6px;" >
+        <a routerLink="staff" >
+          <img class="" src="assets/admindash/sidenav_Nav/staff.png" width="100%" style="padding: 6px;" >
+        </a>
+        
       </div>
       <div class="smallicon rounded my-3 mx-1">
-        <img class="" src="assets/admindash/sidenav_Nav/setting.png" width="100%" style="padding: 6px;" >
+        <a routerLink="settings" >
+          <img class="" src="assets/admindash/sidenav_Nav/setting.png" width="100%" style="padding: 6px;" >
+        </a>
+        
       </div>
       
       
       
     </div>
     <div class="col right-content rounded container-color">
-
+      <router-outlet></router-outlet>
     </div>
   </div>
 
