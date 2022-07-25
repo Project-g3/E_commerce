@@ -12,7 +12,7 @@ import { AdminStaffComponent } from './Components/admin-page/admin-staff/admin-s
 const routes: Routes = [
   {path:'',component:AdminPageComponent,
   children:[
-    {path:'dashboard',component:AdminDashComponent},
+    {path:'',component:AdminDashComponent},
     {path:'orders',component:AdminOrdersComponent},
     {path:'category',component:AdminCategoryComponent},
     {path:'settings',component:AdminSettingsComponent},
