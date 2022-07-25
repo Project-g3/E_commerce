@@ -1,0 +1,13 @@
+.sidenav-small{
+  
+    height: 100%;
+    width: 60px!important;
+    margin: 5px;
+    /* overflow: hidden; */
+    padding: 4px;
+    
+  }
+  .smallicon:hover{
+    background-color: rgb(110, 110, 110);
+    padding: 3px;
+  }

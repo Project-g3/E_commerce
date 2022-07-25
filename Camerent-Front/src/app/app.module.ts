@@ -12,6 +12,7 @@ import { AdminCustomersComponent } from './Components/admin-page/admin-customers
 import { AdminSettingsComponent } from './Components/admin-page/admin-settings/admin-settings.component';
 import { AdminStaffComponent } from './Components/admin-page/admin-staff/admin-staff.component';
 import { AdminCategoryComponent } from './Components/admin-page/admin-category/admin-category.component';
+import { AdminSidenavComponent } from './Components/admin-page/admin-sidenav/admin-sidenav.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AdminCategoryComponent } from './Components/admin-page/admin-category/a
     AdminCustomersComponent,
     AdminSettingsComponent,
     AdminStaffComponent,
-    AdminCategoryComponent
+    AdminCategoryComponent,
+    AdminSidenavComponent
   ],
   imports: [
     BrowserModule,

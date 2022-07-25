@@ -20,3 +20,7 @@ p,h1,h2,h3,h4,h5,h6,label{
 .container-color {
     background-color: rgba(27, 29, 33, 1);
 }
+.active{
+    background-color: rgb(110, 110, 110);
+  padding: 3px;
+}
