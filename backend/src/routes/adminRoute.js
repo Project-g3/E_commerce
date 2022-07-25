@@ -6,6 +6,11 @@ const adminRouter = new express();
 function router(){
 
     adminRouter.get('/',(req,res)=>{
-        res.send('working fine');
+        res.send('admin dash working fine');
       });
+
+
+      return adminRouter;
 }
+
+module.exports = router();
