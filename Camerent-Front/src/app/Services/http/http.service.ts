@@ -11,5 +11,6 @@ export class HttpService {
 
   getProducts(){
     return this.http.get('http://localhost:3210/admin-dash');
+    
   }
 }
