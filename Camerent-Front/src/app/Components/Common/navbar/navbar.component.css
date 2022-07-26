@@ -1,0 +1,21 @@
+.nav-link:hover{
+    color: grey!important;
+    transform: scale(0.9);   
+}
+
+
+
+
+.cart:hover{
+    transform: scale(1.4);
+}
+
+
+
+/**************** media query *******************/
+
+@media only screen and (max-width: 600px) { 
+    .navbar-brand{
+                padding-left: 10px!important;
+        }
+    }
