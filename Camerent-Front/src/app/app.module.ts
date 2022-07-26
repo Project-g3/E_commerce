@@ -15,6 +15,8 @@ import { AdminStaffComponent } from './Components/admin-page/admin-staff/admin-s
 import { AdminCategoryComponent } from './Components/admin-page/admin-category/admin-category.component';
 import { AdminSidenavComponent } from './Components/admin-page/admin-sidenav/admin-sidenav.component';
 import { NavbarComponent } from './Components/Common/navbar/navbar.component';
+import { ProductsPageComponent } from './Components/products-page/products-page.component';
+import { FooterComponent } from './Components/Common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { NavbarComponent } from './Components/Common/navbar/navbar.component';
     AdminStaffComponent,
     AdminCategoryComponent,
     AdminSidenavComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProductsPageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

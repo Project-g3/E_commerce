@@ -17,6 +17,10 @@ a:hover{
     color:white;
 }
 
+body{
+    background-color: rgb(42, 42, 46);
+}
+
 .headings{
     font-size: 1.5rem;
     font-weight: 300;
