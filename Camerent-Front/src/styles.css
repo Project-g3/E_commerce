@@ -12,7 +12,10 @@ p,h1,h2,h3,h4,h5,h6,label{
 .rounded {
     border-radius: 5px;
 }
-
+.main-body{
+    background-color: rgb(42, 42, 46);
+    min-height:100vh ;
+}
 .body-color {
     background-color: rgb(42, 42, 46);
 }
@@ -20,7 +23,7 @@ p,h1,h2,h3,h4,h5,h6,label{
 .container-color {
     background-color: rgba(27, 29, 33, 1);
 }
-.active{
+.Active{
     background-color: rgb(110, 110, 110);
   padding: 3px;
 }

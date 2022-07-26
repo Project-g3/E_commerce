@@ -8,9 +8,11 @@ import { AdminPageComponent } from './Components/admin-page/admin-page.component
 import { AdminProductsComponent } from './Components/admin-page/admin-products/admin-products.component';
 import { AdminSettingsComponent } from './Components/admin-page/admin-settings/admin-settings.component';
 import { AdminStaffComponent } from './Components/admin-page/admin-staff/admin-staff.component';
+import { NavbarComponent } from './Components/Common/navbar/navbar.component';
 
 const routes: Routes = [
-  {path:'',component:AdminPageComponent,
+  {path:'',component:NavbarComponent},
+  {path:'admin-dashboard',component:AdminPageComponent,
   children:[
     {path:'',component:AdminDashComponent},
     {path:'orders',component:AdminOrdersComponent},

@@ -14,6 +14,7 @@ import { AdminSettingsComponent } from './Components/admin-page/admin-settings/a
 import { AdminStaffComponent } from './Components/admin-page/admin-staff/admin-staff.component';
 import { AdminCategoryComponent } from './Components/admin-page/admin-category/admin-category.component';
 import { AdminSidenavComponent } from './Components/admin-page/admin-sidenav/admin-sidenav.component';
+import { NavbarComponent } from './Components/Common/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdminSidenavComponent } from './Components/admin-page/admin-sidenav/adm
     AdminSettingsComponent,
     AdminStaffComponent,
     AdminCategoryComponent,
-    AdminSidenavComponent
+    AdminSidenavComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
