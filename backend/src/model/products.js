@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('https://localhost:27017/Camerent');
+mongoose.connect('mongodb://localhost:27017/Camerent');
 
 // creating a schema for products
 
-const schema = mongoose.Schema;
+var schema = mongoose.Schema;
 
 const products = new schema({
     id : String,
@@ -18,7 +18,7 @@ const products = new schema({
 
 });
 
-const productData = mongoose.model('product',products);
+var productData = mongoose.model('product',products);
 
 module.exports = productData;
 
