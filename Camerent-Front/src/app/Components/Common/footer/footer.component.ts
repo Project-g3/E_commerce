@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { footerData } from './footer.data';
 
 @Component({
   selector: 'app-footer',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+
+  footerNav = footerData;
 
   constructor() { }
 
