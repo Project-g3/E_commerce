@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/Services/http/http.service';
 
 @Component({
   selector: 'app-admin-products',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-products.component.css']
 })
 export class AdminProductsComponent implements OnInit {
-
-  constructor() { }
+  productsList : any;
+  constructor(private httpObj : HttpService) { }
 
   ngOnInit(): void {
+    this.httpObj.getProducts()
+    .subscribe((data)=>{
+      this.productsList = JSON.parse(JSON.stringify(data));
+      console.log(this.productsList);
+    })
   }
 
 }

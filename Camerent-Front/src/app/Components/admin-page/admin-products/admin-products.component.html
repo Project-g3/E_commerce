@@ -50,31 +50,29 @@
     <table class="table table-dark">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">#id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">ShortDesc</th>
+            <th scope="col">Desc</th>
+            <th scope="col">ImgURL</th>
+            <th scope="col">Brand</th>
+            
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+          <tr *ngFor="let i of productsList">
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.name}}</td>
+            <td>{{i.category}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.shortDesc}}</td>
+            <td>{{i.desc}}</td>
+            <td>{{i.imgURL}}</td>
+            <td>{{i.Brand}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          
         </tbody>
       </table>
 </div>
