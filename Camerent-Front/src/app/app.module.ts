@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,12 @@ import { AdminSidenavComponent } from './Components/admin-page/admin-sidenav/adm
 import { NavbarComponent } from './Components/Common/navbar/navbar.component';
 import { ProductsPageComponent } from './Components/products-page/products-page.component';
 import { FooterComponent } from './Components/Common/footer/footer.component';
+import { ProductsLeftFilterComponent } from './Components/products-page/products-left-filter/products-left-filter.component';
+import { ProductsPageRightComponent } from './Components/products-page/products-page-right/products-page-right.component';
+import { FilterCategoriesComponent } from './Components/products-page/products-left-filter/filter-categories/filter-categories.component';
+import { FilterPriceRangeComponent } from './Components/products-page/products-left-filter/filter-price-range/filter-price-range.component';
+import { FilterBrandComponent } from './Components/products-page/products-left-filter/filter-brand/filter-brand.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -34,14 +42,22 @@ import { FooterComponent } from './Components/Common/footer/footer.component';
     AdminSidenavComponent,
     NavbarComponent,
     ProductsPageComponent,
-    FooterComponent
+    FooterComponent,
+    ProductsLeftFilterComponent,
+    ProductsPageRightComponent,
+    FilterCategoriesComponent,
+    FilterPriceRangeComponent,
+    FilterBrandComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCheckboxModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

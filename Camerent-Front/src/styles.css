@@ -52,3 +52,5 @@ body{
     background-color: rgb(110, 110, 110);
   padding: 3px;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
