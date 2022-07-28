@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/Services/http/http.service';
+import { Products } from './admin-products.model';
 
 @Component({
   selector: 'app-admin-products',
@@ -7,15 +8,23 @@ import { HttpService } from 'src/app/Services/http/http.service';
   styleUrls: ['./admin-products.component.css']
 })
 export class AdminProductsComponent implements OnInit {
-  productsList : any;
+  productsList : Products[] | undefined;
+
   constructor(private httpObj : HttpService) { }
 
   ngOnInit(): void {
+
     this.httpObj.getProducts()
     .subscribe((data)=>{
       this.productsList = JSON.parse(JSON.stringify(data));
       console.log(this.productsList);
     })
   }
+
+  cons(){
+    console.log(this.productsList);
+  }
+  
+  
 
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { AdminSidenavComponent } from './Components/admin-page/admin-sidenav/adm
 import { NavbarComponent } from './Components/Common/navbar/navbar.component';
 import { ProductsPageComponent } from './Components/products-page/products-page.component';
 import { FooterComponent } from './Components/Common/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { FooterComponent } from './Components/Common/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     FontAwesomeModule,
     HttpClientModule
   ],
