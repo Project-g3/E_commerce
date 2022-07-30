@@ -5,10 +5,10 @@
 
 /* Setting up universal colors  */
 :root {
-    --body-color: #f5f5f5;
-    --container-color: #3a7ca5;
-    --component-color: #2f6690;
-    --nav-color : #16425b;
+    --body-color: #f1f1f1;
+    --container-color: #1F4690;
+    --component-color: #1F4690;
+    --nav-color : #102242;
 }
 
 .body-color{
@@ -46,9 +46,6 @@ a:hover{
     color:white;
 }
 
-body{
-    background-color: #d9dcd6;
-}
 
 .headings{
     font-size: 1.5rem;
