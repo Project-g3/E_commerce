@@ -6,7 +6,7 @@ const ProductData = require('../model/products');
 const adminRouter = new express();
 
 
-adminRouter.use(cors);
+adminRouter.use(cors());
 
 // Setting body parser
 adminRouter.use(bodyparser.json());
@@ -15,7 +15,7 @@ adminRouter.use(bodyparser.json());
 
     adminRouter.get('/',(req,res)=>{
       res.header("Access-Control-Allow-Orgin","*");
-      res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
       ProductData.find()
       .then((data)=>{
         res.send(data);

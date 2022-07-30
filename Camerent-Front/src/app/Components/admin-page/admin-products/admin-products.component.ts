@@ -21,9 +21,6 @@ export class AdminProductsComponent implements OnInit {
     })
   }
 
-  cons(){
-    console.log(this.productsList);
-  }
   
   
 

@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyparser = require('body-parser');
+// const bodyparser = require('body-parser');
 const cors = require('cors');
 
 //setting routes const
@@ -9,10 +9,10 @@ const adminRoute = require('./src/routes/adminRoute');
 const app = new express();
 
 // for connecting with frontend
-app.use(cors);
+app.use(cors());
 
 // Setting body parser
-app.use(bodyparser.json());
+// app.use(bodyparser.json());
 
 // Routing
 app.use('/admin-dash',adminRoute);
