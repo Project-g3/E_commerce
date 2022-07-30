@@ -1,3 +1,19 @@
+
+
 label{
     font-size: 0.8em;
 }
+
+
+.checkbox{
+    overflow: scroll;
+    
+}
+.check{
+    font-size: 12px;
+}
+
+.mat-checkbox-label{
+    color: black!important;
+}
+
