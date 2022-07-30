@@ -3,7 +3,7 @@
     margin-top: 20px;
 }
 
-p{
+a{
     font-size: 12px;
     font-weight: 200;
     letter-spacing: 0.5px;
@@ -13,4 +13,8 @@ p{
 
 .nav-filter-link:hover{
     text-decoration: underline;
+}
+
+ul{
+    overflow: hidden;
 }
