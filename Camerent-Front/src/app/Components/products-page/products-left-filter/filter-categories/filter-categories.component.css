@@ -1,8 +1,5 @@
 
 
-label{
-    font-size: 0.8em;
-}
 
 
 .checkbox{
@@ -13,7 +10,5 @@ label{
     font-size: 12px;
 }
 
-.mat-checkbox-label{
-    color: black!important;
-}
+
 

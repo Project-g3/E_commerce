@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter-brand.component.css']
 })
 export class FilterBrandComponent implements OnInit {
-
+  brands = ['Canon','Sony','Nikon','Fujifilm','Panasonic','PENTAX'];
   constructor() { }
 
   ngOnInit(): void {
