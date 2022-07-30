@@ -1,0 +1,16 @@
+.top-fliter{
+    height: 80px;
+    margin-top: 20px;
+}
+
+p{
+    font-size: 12px;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    margin:0px;
+}
+
+.nav-filter-link:hover{
+    text-decoration: underline;
+}

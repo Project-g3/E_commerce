@@ -1,0 +1,9 @@
+@media only screen and (max-width: 992px) {
+    .left-filter {
+      display: none;
+    }
+  }
+
+  .left-filter{
+    width: 300px;
+  }
