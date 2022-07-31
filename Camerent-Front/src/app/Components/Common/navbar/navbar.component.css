@@ -14,6 +14,14 @@
     background-color: var(--component-color);
 }
 
+.dropdown-item{
+    font-size: 13px;
+}
+.dropdown-item:hover{
+    background-color: var(--component-color);
+    color:white
+}
+
 
 
 /**************** media query *******************/

@@ -47,32 +47,32 @@
 
 
 <div class="container">
-    <table class="table table-dark">
-        <thead>
-          <tr>
-            <th scope="col">#id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Price</th>
-            <th scope="col">ShortDesc</th>
-            <th scope="col">Desc</th>
-            <th scope="col">ImgURL</th>
-            <th scope="col">Brand</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let i of productsList">
-            <th scope="row">{{i.id}}</th>
-            <td>{{i.name}}</td>
-            <td>{{i.category}}</td>
-            <td>{{i.price}}</td>
-            <td>{{i.shortDesc}}</td>
-            <td>{{i.desc}}</td>
-            <td>{{i.imgUrl}}</td>
-            <td>{{i.brand}}</td>
-          </tr>
-          
-        </tbody>
-      </table>
+  <table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">#id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">ShortDesc</th>
+        <th scope="col">Desc</th>
+        <th scope="col">ImgURL</th>
+        <th scope="col">Brand</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of productsList">
+        <th scope="row">{{i.id}}</th>
+        <td>{{i.name}}</td>
+        <td>{{i.category}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.shortDesc}}</td>
+        <td>{{i.desc}}</td>
+        <td>{{i.imgUrl}}</td>
+        <td>{{i.brand}}</td>
+      </tr>
+
+    </tbody>
+  </table>
 </div>
