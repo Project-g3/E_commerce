@@ -1,0 +1,45 @@
+/* universal */
+.rounded{
+  border-radius: 5px;
+}
+.body-color{
+  background-color: rgb(42, 42, 46);
+}
+.container-color{
+  background-color: rgba(27, 29, 33, 1);
+}
+
+/* *************************************** */
+
+/* Admin-navbar */
+.logout:hover{
+  transform: scale(1.2);
+}
+
+.admin-page{
+  min-height:100vh;
+  /* overflow: hidden; */
+}
+
+.admin-page-nav{
+  
+  color: white;
+}
+
+.admin-page-content{
+  min-height: calc(100vh - 40px);
+  /* overflow: hidden; */
+}
+
+
+
+
+
+
+
+/* right content */
+
+.right-content{
+  
+  margin: 5px 10px 5px 5px;
+}

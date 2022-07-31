@@ -1,0 +1,78 @@
+<div class="container">
+    <!--Heading  -->
+    <div class="row mt-3">
+        <div class="col">
+            <h5 class="headings text-center"><u>Products</u></h5> 
+        </div>
+    </div>
+    
+    <!-- Forms for serching the Orders -->
+    <form>
+    
+        <div class="row my-4 py-4 px-1 body-color rounded">
+            
+            <div class="col-lg-3 form-group">
+                <input type="text" class="form-control" id="searchID" placeholder="Search by ID">
+            </div>
+            <!-- Dropdown for order status -->
+            <div class="col-lg-3 form-group dropdown">
+                <button class="btn btn-light text-secondary dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown button
+                  </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+            </div>
+            <!-- Dropdown for filtering days -->
+            <div class="col-lg-3 form-group dropdown">
+                <button class="btn btn-light text-secondary dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown button
+                  </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+            </div>
+            <div class="col-lg-3">
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </div>
+            
+
+        </div>
+    </form>
+</div>
+
+
+<div class="container">
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">ShortDesc</th>
+            <th scope="col">Desc</th>
+            <th scope="col">ImgURL</th>
+            <th scope="col">Brand</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of productsList">
+            <th scope="row">{{i.id}}</th>
+            <td>{{i.name}}</td>
+            <td>{{i.category}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.shortDesc}}</td>
+            <td>{{i.desc}}</td>
+            <td>{{i.imgURL}}</td>
+            <td>{{i.Brand}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
