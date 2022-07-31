@@ -17,7 +17,6 @@ export class AdminProductsComponent implements OnInit {
     this.httpObj.getProducts()
     .subscribe((data)=>{
       this.productsList = JSON.parse(JSON.stringify(data));
-      console.log(this.productsList);
     })
   }
 
