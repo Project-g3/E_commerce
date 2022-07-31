@@ -9,10 +9,11 @@ import { AdminProductsComponent } from './Components/admin-page/admin-products/a
 import { AdminSettingsComponent } from './Components/admin-page/admin-settings/admin-settings.component';
 import { AdminStaffComponent } from './Components/admin-page/admin-staff/admin-staff.component';
 import { NavbarComponent } from './Components/Common/navbar/navbar.component';
+import { HomePageComponent } from './Components/home-page/home-page.component';
 import { ProductsPageComponent } from './Components/products-page/products-page.component';
 
 const routes: Routes = [
-  {path:'',component:NavbarComponent},
+  {path:'',component:HomePageComponent},
   {path:'products',component:ProductsPageComponent},
   {path:'admin-dashboard',component:AdminPageComponent,
   children:[

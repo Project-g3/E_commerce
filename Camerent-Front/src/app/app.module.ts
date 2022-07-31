@@ -31,6 +31,7 @@ import { FilterPriceRangeComponent } from './Components/products-page/products-l
 import { FilterBrandComponent } from './Components/products-page/products-left-filter/filter-brand/filter-brand.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopFilterComponent } from './Components/products-page/products-page-right/top-filter/top-filter.component';
+import { HomePageComponent } from './Components/home-page/home-page.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { TopFilterComponent } from './Components/products-page/products-page-rig
     FilterCategoriesComponent,
     FilterPriceRangeComponent,
     FilterBrandComponent,
-    TopFilterComponent
+    TopFilterComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
