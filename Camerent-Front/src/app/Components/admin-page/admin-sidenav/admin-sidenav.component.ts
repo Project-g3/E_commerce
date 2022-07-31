@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminSidenavComponent implements OnInit {
 
+  Aclick(){
+
+  }
+
   constructor() { }
 
   ngOnInit(): void {
