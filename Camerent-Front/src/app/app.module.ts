@@ -33,6 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopFilterComponent } from './Components/products-page/products-page-right/top-filter/top-filter.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { AddProductsModalComponent } from './Components/admin-page/admin-products/add-products-modal/add-products-modal.component';
+import { ProductCardComponent } from './Components/Common/product-card/product-card.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { AddProductsModalComponent } from './Components/admin-page/admin-product
     FilterBrandComponent,
     TopFilterComponent,
     HomePageComponent,
-    AddProductsModalComponent
+    AddProductsModalComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
