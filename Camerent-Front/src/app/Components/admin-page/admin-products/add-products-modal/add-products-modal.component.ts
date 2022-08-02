@@ -11,14 +11,22 @@ import { Products } from '../admin-products.model';
 export class AddProductsModalComponent implements OnInit {
   add(data:any){
     let text = "Do you want to add the product";
-    if(confirm(text)==true){
-      console.log('true');
-      console.log(data);
+
+    if(data.status=='VALID'){
+      if(confirm(text)==true){
+        console.log('true');
+        console.log(data.value,data);
+        
+  
+      }else{
+        console.log('false');
+      }
     }else{
-      console.log('false');
+      alert('Fill all the field before submitting !');
     }
-    
   }
+
+  
   constructor(private httpserobj:HttpService,private router:Router) { }
 
 
