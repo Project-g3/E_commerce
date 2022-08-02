@@ -1,0 +1,14 @@
+h3,h2,p,span{
+    color: black;
+    cursor: pointer;
+}
+.card:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+p{
+    font-size: 12px;
+}
+.card{
+    height: 350px;
+}
