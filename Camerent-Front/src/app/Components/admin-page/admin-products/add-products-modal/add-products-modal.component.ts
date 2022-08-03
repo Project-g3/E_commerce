@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminService } from 'src/app/Services/admin/admin.service';
 import { HttpService } from 'src/app/Services/http/http.service';
 import { Products } from '../admin-products.model';
 
@@ -16,7 +17,9 @@ export class AddProductsModalComponent implements OnInit {
       if(confirm(text)==true){
         console.log('true');
         console.log(data.value,data);
-        
+        this.adminServiceObj.addProduct(data.value);
+        alert('Data stored to database');
+        this.router.navigate(['/admin-dashboard/products'])
   
       }else{
         console.log('false');
@@ -27,10 +30,12 @@ export class AddProductsModalComponent implements OnInit {
   }
 
   
-  constructor(private httpserobj:HttpService,private router:Router) { }
+  constructor(private httpserobj:HttpService,private adminServiceObj: AdminService ,private router:Router) { }
 
 
   ngOnInit(): void {
+
+    
   }
 
 }
