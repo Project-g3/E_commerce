@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter } from '@angular/core';
 import { HttpService } from 'src/app/Services/http/http.service';
 import { Products } from './admin-products.model';
 
@@ -8,7 +8,15 @@ import { Products } from './admin-products.model';
   styleUrls: ['./admin-products.component.css']
 })
 export class AdminProductsComponent implements OnInit {
+  products : Products[] | undefined;
   productsList : Products[] | undefined;
+
+  // intializing variable for two way data binding with ngModel
+  searchbyid = '';
+  searchbyname = '';
+  searchbycat = '';
+  
+  
     
   constructor(private httpObj : HttpService) { 
     
@@ -17,7 +25,8 @@ export class AdminProductsComponent implements OnInit {
   ngOnInit(): void {
     this.httpObj.getProducts()
     .subscribe((data)=>{
-      this.productsList = JSON.parse(JSON.stringify(data));
+      this.products = JSON.parse(JSON.stringify(data));
+      this.productsList = this.products;
     })
     
   }
