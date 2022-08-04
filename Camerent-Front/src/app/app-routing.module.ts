@@ -11,10 +11,12 @@ import { AdminStaffComponent } from './Components/admin-page/admin-staff/admin-s
 import { NavbarComponent } from './Components/Common/navbar/navbar.component';
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { ProductsPageComponent } from './Components/products-page/products-page.component';
+import { SingleProductPageComponent } from './Components/single-product-page/single-product-page.component';
 
 const routes: Routes = [
   {path:'',component:HomePageComponent},
   {path:'products',component:ProductsPageComponent},
+  {path:'single-product',component:SingleProductPageComponent},
   {path:'admin-dashboard',component:AdminPageComponent,
   children:[
     {path:'',component:AdminDashComponent},

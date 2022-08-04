@@ -12,18 +12,16 @@
   <div class="row my-4 py-4 px-1 component-color rounded">
 
     <div class="col-lg-3 form-group">
-      <input type="text" class="form-control" id="searchID" placeholder="Search by ID" [(ngModel)]="searchbyid">
+      <input type="text" class="form-control" id="searchID" placeholder="Search by ID"  >
     </div>
     <!-- Dropdown for order status -->
     <div class="col-lg-3 form-group dropdown">
       <button class="btn btn-light text-secondary dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
+        Category
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
+        <a class="dropdown-item" *ngFor="let a of category" (click)="searchByCategory(a)" >{{a}}</a>
       </div>
     </div>
     <!-- Dropdown for filtering days -->
@@ -33,9 +31,7 @@
         Dropdown button
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
+        <a class="dropdown-item" value="Action">Action</a>
       </div>
     </div>
     <div class="col-lg-3 mb-3">
@@ -71,7 +67,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let i of productsList">
-        <ng-container *ngIf=" searchbyid==='' || i.id.includes(searchbyid) "  >
+        <ng-container *ngIf=" searchbyid==='' || i.id.includes(searchbyid) && i.name.includes(searchbyname)"  >
           <th scope="row">{{i.id}}</th>
           <td>{{i.name}}</td>
           <td>{{i.category}}</td>

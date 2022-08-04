@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+
 // Angular modules
+import { FormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 // **************************
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +36,10 @@ import { TopFilterComponent } from './Components/products-page/products-page-rig
 import { HomePageComponent } from './Components/home-page/home-page.component';
 import { AddProductsModalComponent } from './Components/admin-page/admin-products/add-products-modal/add-products-modal.component';
 import { ProductCardComponent } from './Components/Common/product-card/product-card.component';
+import { SingleProductPageComponent } from './Components/single-product-page/single-product-page.component';
+import { ProductImgCarouselComponent } from './Components/single-product-page/product-img-carousel/product-img-carousel.component';
+import { ProductRightTextComponent } from './Components/single-product-page/product-right-text/product-right-text.component';
+
 
 
 @NgModule({
@@ -59,7 +65,10 @@ import { ProductCardComponent } from './Components/Common/product-card/product-c
     TopFilterComponent,
     HomePageComponent,
     AddProductsModalComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    SingleProductPageComponent,
+    ProductImgCarouselComponent,
+    ProductRightTextComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +80,8 @@ import { ProductCardComponent } from './Components/Common/product-card/product-c
     MatCheckboxModule,
     MatSliderModule,
     MatDividerModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
