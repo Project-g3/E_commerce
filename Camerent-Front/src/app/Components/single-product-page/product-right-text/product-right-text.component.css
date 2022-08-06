@@ -9,3 +9,7 @@
 .shortDescText{
     letter-spacing: 2.8px;
 }
+button{
+    border-radius: 48px;
+    padding: 12px 36px;
+}
