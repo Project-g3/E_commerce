@@ -26,11 +26,8 @@ export class ProductImgCarouselComponent implements OnInit {
   {
     imgurl:'cam5.jpeg',
     index:5
-  },
-  {
-    imgurl:'cam6.jpeg',
-    index:6
   }
+  
 ];
 
   mouseenter(abc:any,mainImg:any){

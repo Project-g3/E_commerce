@@ -4,4 +4,8 @@
 
 .title{
     letter-spacing: 6px;
+    font-weight: 300;
+}
+.shortDescText{
+    letter-spacing: 2.8px;
 }

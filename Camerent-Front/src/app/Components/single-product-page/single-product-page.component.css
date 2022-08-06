@@ -1,0 +1,28 @@
+h2,p{
+    cursor:default;
+    color:  rgb(85, 85, 85); 
+    letter-spacing: 2px;
+   
+}
+p{
+    line-height: 30px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+.heading{
+    font-size: 16px;
+    border-bottom: 2px;
+    letter-spacing: 2px;
+}
+.descSec{
+    margin-top: 3em;
+    height: 100vh;
+}
+.descCard{
+    background-color: white;
+    margin: 50px 0px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 20px var(--nav-color);
+}
