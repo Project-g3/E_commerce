@@ -1,7 +1,7 @@
 <div class="row h-100" style="overflow: hidden;">
-    <div class="col-2 px-0 pl-1 py-3 sideImgNav" >
-        <ul class="p-0 mr-1 rounded" *ngFor="let i of array" >
-            <li class="sideImg p-2"><img (mouseenter)="mouseenter(i.imgurl,mainImg)" src="assets/productImg/{{i.imgurl}}" class="rounded" alt="" width="100%" height="70px" style="object-fit:scale-down;"></li>
+    <div class="col-2 px-1 py-3 sideImgNav" >
+        <ul class=" m-0 p-0 pb-2  rounded" *ngFor="let i of array" >
+            <li class="sideImg p-2 listStyle"><img (mouseenter)="mouseenter(i.imgurl,mainImg)" src="assets/productImg/{{i.imgurl}}" class="rounded" alt="" width="100%" height="70px" style="object-fit:scale-down;"></li>
         </ul>
     </div>
     <div class="col-10 py-3 my-2 mainImg" style="height: 500px;" >
