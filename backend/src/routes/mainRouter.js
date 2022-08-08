@@ -2,6 +2,8 @@ const router = require("express").Router();
 const passport = require("passport");
 const genPassword = require('../lib/passwordUtils').genPassword;
 const user = require("../model/UserModel");
+const isAuth= require("./authMiddleware").isAuth;
+const isAdmin = require("./authMiddleware").isAdmin;
 
 
 // TODO
@@ -21,7 +23,8 @@ router.post('/register', (req, res, next) => {
     const newUser = new user({
         name: req.body.username,
         hash: hash,
-        salt: salt
+        salt: salt,
+        admin:false
     });
 
     newUser.save();
@@ -61,20 +64,15 @@ router.get('/register', (req, res, next) => {
 
 });
 
-/**
- * Lookup how to authenticate users on routes with Local Strategy
- * Google Search: "How to use Express Passport Local Strategy"
- * 
- * Also, look up what behaviour express session has without a maxage set
- */
-router.get('/protected-route', (req, res, next) => {
-    if (req.isAuthenticated()) {
-        res.send('<h1>You are authenticated</h1><p><a href="/logout">Logout and reload</a></p>');
-    } else {
-        res.send('<h1>You are not authenticated</h1><p><a href="/login">Login</a></p>');
-    }
 
-    // This is how you check if a user is authenticated and protect a route.  You could turn this into a custom middleware to make it less redundant
+// isAuth check if a user is logged in
+router.get('/protected-route',isAuth, (req, res, next) => {
+     res.send("protected")
+
+});
+// admin check 
+router.get('/admin', isAdmin ,(req, res, next) => {
+    res.send("admin !!!!!!!!!!!!!!")
 
 });
 
@@ -82,7 +80,7 @@ router.get('/protected-route', (req, res, next) => {
 router.get('/logout', (req, res, next) => {
     req.logout(function (err) {
         if (err) { return next(err); }
-        res.redirect('/');
+        res.redirect('/home');
     });
 
 

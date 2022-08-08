@@ -20,6 +20,7 @@ const UserSchema = new mongoose.Schema({
     name:String,
     email:String,
     address:String,
+    admin:Boolean,
     phoneNumber:Number,
     hash:String,//for passport
     salt:String //for passport

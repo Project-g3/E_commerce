@@ -16,6 +16,11 @@ const app = new express();
 // test env file
 require("dotenv").config();
 
+//convert request body to JSON.
+app.use(express.json());
+//convert url
+app.use(express.urlencoded({ extended: true }));
+
 // for connecting with frontend
 app.use(cors());
 
@@ -46,6 +51,8 @@ app.use(passport.initialize());
 // passport use session object
 app.use(passport.session());
 
+
+
 // Imports all of the routes from ./routes
 app.use(routes);
 
@@ -62,5 +69,6 @@ app.get('/',(req,res)=>{
   res.send('working fine');
 });
 
-app.listen(3210);
-console.log('the server is running on port:3210');
+app.listen(3000, () => {
+  console.log("app running on http://localhost:3000/")
+})
