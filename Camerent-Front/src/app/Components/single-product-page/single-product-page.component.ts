@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-single-product-page',
@@ -7,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleProductPageComponent implements OnInit {
 
+  pId : any;
   
-  constructor() { }
+  constructor(private router:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.router.queryParams
+      .subscribe(params => {
+        console.log(params); // { orderby: "price" }
+        // this.pId = params.pID;
+        // console.log(this.orderby); // price
+      })
   }
 
 }

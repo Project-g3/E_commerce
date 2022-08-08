@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,11 +9,16 @@ import { Router } from '@angular/router';
 export class ProductCardComponent implements OnInit {
   cli(){
     console.log('clicked');
-    this.router.navigate(['single-product']);
+    this.router.navigate(['single-product',{pID:this.item._id}]);
   }
+  item :any;
+
+  @Input() data = new Array;
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    this.item = this.data;
+    
   }
 
 }
