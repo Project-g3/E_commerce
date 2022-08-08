@@ -1,5 +1,5 @@
 .nav-link:hover{
-    color: grey!important;
+    
     transform: scale(0.9);   
 }
 
@@ -8,6 +8,18 @@
 
 .cart:hover{
     transform: scale(1.4);
+}
+
+.active{
+    background-color: var(--component-color);
+}
+
+.dropdown-item{
+    font-size: 13px;
+}
+.dropdown-item:hover{
+    background-color: var(--component-color);
+    color:white
 }
 
 

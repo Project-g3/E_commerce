@@ -1,11 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* You can add global styles to this file, and also import other style files */
 
-*{
-    font-family: 'Poppins', sans-serif;
+
+/* Setting up universal colors  */
+:root {
+    --body-color: #f1f1f1;
+    --container-color: #1F4690;
+    --component-color: #184aa8;
+    --nav-color : #102242;
 }
-p,h1,h2,h3,h4,h5,h6,label,a ,ul,li{
+
+.body-color{
+    background-color: var(--body-color);
+}
+.container-color{
+    background-color: var(--container-color);
+}
+.component-color{
+    background-color: var(--component-color);
+}
+.nav-color{
+    background-color: var(--nav-color);
+}
+
+*{
+    font-family: 'Poppins', sans-serif !important;
+}
+p,h1,h2,h3,h4,h5,h6,a ,ul,li{
     color:white;
     font-family: 'Poppins', sans-serif;
 }
@@ -24,9 +49,6 @@ a:hover{
     color:white;
 }
 
-body{
-    background-color: rgb(42, 42, 46);
-}
 
 .headings{
     font-size: 1.5rem;
@@ -38,17 +60,44 @@ body{
     border-radius: 5px;
 }
 .main-body{
-    background-color: rgb(42, 42, 46);
     min-height:100vh ;
 }
-.body-color {
-    background-color: rgb(42, 42, 46);
-}
 
-.container-color {
-    background-color: rgba(27, 29, 33, 1);
-}
+
 .Active{
-    background-color: rgb(110, 110, 110);
+    background-color: var(--nav-color);
   padding: 3px;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+/************** scrollbar ********************/
+
+
+/* width */
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+/* ************************************** */
+
+

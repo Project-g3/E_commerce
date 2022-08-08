@@ -1,5 +1,5 @@
 
-    <nav class=" navbar navbar-expand-lg container-fluid body container-color text-white py-3 my-3 ">
+    <nav class=" navbar navbar-expand-lg container-fluid body nav-color text-white py-4  ">
         <a class="navbar-brand pl-5 " routerLink="">Camarent</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <img src="assets/Main Navbar/burgerMenu.png" alt="" width="40px">
@@ -7,31 +7,40 @@
         <div class="collapse navbar-collapse pr-5 mr-4" id="navbarNav">
           <ul class="navbar-nav ml-auto pr-2" >
             <li class="nav-item pr-1 " >
-              <a class="nav-link " routerLink="home">Home</a>
+              <a class="nav-link " routerLink="">Home</a>
             </li>
             <!-- dropdown for camera -->
             <div class="dropdown pr-1">
-              <a class=" nav-link dropdown-toggle" id="cameraHeading" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+              <a class=" nav-link dropdown-toggle" style="cursor: pointer;" id="cameraHeading" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" >
                 Camera's
               </a>
               <div class="dropdown-menu " aria-labelledby="cameras-list">
-                <button class="dropdown-item" type="button">Action</button>
-                <button class="dropdown-item" type="button">Another action</button>
-                <button class="dropdown-item" type="button">Something else here</button>
+                <button class="dropdown-item active" routerLink="/products" type="button">Action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Another action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Something else here</button>
               </div>
             </div>
 
             <!-- dropdown for accesories-->
             <div class="dropdown pr-1">
-              <a class=" nav-link dropdown-toggle" id="accesoriesHeading" data-toggle="dropdown" aria-haspopup="true"
+              <a class=" nav-link dropdown-toggle" style="cursor: pointer;" id="accesoriesHeading" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 Dropdown
               </a>
               <div class="dropdown-menu " aria-labelledby="accesories-list">
-                <button class="dropdown-item" type="button">Action</button>
-                <button class="dropdown-item" type="button">Another action</button>
-                <button class="dropdown-item" type="button">Something else here</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Another action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Something else here</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Another action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Something else here</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Another action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Something else here</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Another action</button>
+                <button class="dropdown-item" routerLink="/products" type="button">Something else here</button>
               </div>
             </div>
             <!-- About -->
@@ -44,13 +53,15 @@
             </li>
             <!-- login -->
             <li class="nav-item  pr-1" >
-              <a class="nav-link" routerLink="login">Login/Signup</a>
+              <a class="nav-link" href="#" (click)="openModal($event)">Login/Signup</a>
             </li>
             
             
           </ul>
           <!-- cart Icon -->
           <a class="cart" href="#"><img src="/assets/Main Navbar/cart.png" width="30px" alt="cart"></a>
+          
         </div>
       </nav>
+
 

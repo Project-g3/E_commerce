@@ -1,0 +1,25 @@
+
+.card{
+    cursor: pointer
+}
+h2 {
+    color: black;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 70px;
+}
+
+.card.hover, .card:hover{
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2)
+}
+.img{
+    margin-bottom: 35px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222)
+}
+.card-title{
+    font-weight: 600;
+}

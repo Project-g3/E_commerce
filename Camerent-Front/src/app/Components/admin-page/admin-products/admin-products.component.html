@@ -1,78 +1,73 @@
 <div class="container">
-    <!--Heading  -->
-    <div class="row mt-3">
-        <div class="col">
-            <h5 class="headings text-center"><u>Products</u></h5> 
-        </div>
+  <!--Heading  -->
+  <div class="row mt-3">
+    <div class="col">
+      <h2 class="headings text-center"><u>Products</u></h2>
     </div>
-    
-    <!-- Forms for serching the Orders -->
-    <form>
-    
-        <div class="row my-4 py-4 px-1 body-color rounded">
-            
-            <div class="col-lg-3 form-group">
-                <input type="text" class="form-control" id="searchID" placeholder="Search by ID">
-            </div>
-            <!-- Dropdown for order status -->
-            <div class="col-lg-3 form-group dropdown">
-                <button class="btn btn-light text-secondary dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                  </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-            </div>
-            <!-- Dropdown for filtering days -->
-            <div class="col-lg-3 form-group dropdown">
-                <button class="btn btn-light text-secondary dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                  </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
-            </div>
-            <div class="col-lg-3">
-                <button type="submit" class="btn btn-primary w-100">Submit</button>
-            </div>
-            
+  </div>
 
-        </div>
-    </form>
+  <!-- Forms for serching the Orders -->
+
+
+  <div class="row my-4 py-4 px-1 component-color rounded">
+
+    <div class="col-lg-4 form-group">
+      <input type="text" class="form-control" id="searchID" placeholder="Search by ID" [(ngModel)]="searchbyid"  >
+    </div>
+    <!-- Dropdown for order status -->
+    <div class="col-lg-4 form-group dropdown">
+      <input type="text" class="form-control" id="searchName" #name (keyup)="searchFilter(name)" placeholder="Search by Name" [(ngModel)]="searchbyname"  >
+    </div>
+    <!-- Dropdown for filtering days -->
+    <div class="col-lg-4 form-group dropdown">
+      <input type="text" class="form-control" id="searchCategory" #category (keyup)="searchFilter(category)" placeholder="Search by Category" [(ngModel)]="searchbycat"  >
+    </div>  
+
+
+
+    <!--****************** Model for adding products********************* -->
+    <div class="col-12 d-flex justify-content-center">
+      <app-add-products-modal></app-add-products-modal>
+    </div>
+    <!-- ***************************************************** -->
+
+
+  </div>
 </div>
 
 
-<div class="container">
-    <table class="table table-dark">
-        <thead>
-          <tr>
-            <th scope="col">#id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Price</th>
-            <th scope="col">ShortDesc</th>
-            <th scope="col">Desc</th>
-            <th scope="col">ImgURL</th>
-            <th scope="col">Brand</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let i of productsList">
-            <th scope="row">{{i.id}}</th>
-            <td>{{i.name}}</td>
-            <td>{{i.category}}</td>
-            <td>{{i.price}}</td>
-            <td>{{i.shortDesc}}</td>
-            <td>{{i.desc}}</td>
-            <td>{{i.imgURL}}</td>
-            <td>{{i.Brand}}</td>
-          </tr>
-          
-        </tbody>
-      </table>
+<div class="container" style="overflow-x:scroll;">
+  <table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">#id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">ShortDesc</th>
+        <th scope="col">Desc</th>
+        <th scope="col">ImgURL</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Update/Delete</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of productsList">
+        <ng-container *ngIf=" searchbyid==='' || i.id.includes(searchbyid)"  >
+          <th scope="row">{{i.id}}</th>
+          <td>{{i.name}}</td>
+          <td>{{i.category}}</td>
+          <td>{{i.price}}</td>
+          <td>{{i.shortDesc}}</td>
+          <td>{{i.desc}}</td>
+          <td>{{i.imgUrl}}</td>
+          <td>{{i.brand}}</td>
+          <td><button class="btn bg-success text-white w-100" >Upload</button><button class="btn bg-danger text-white w-100 mt-1">Delete</button></td>
+        </ng-container>
+        
+      </tr>
+
+    </tbody>
+  </table>
 </div>
