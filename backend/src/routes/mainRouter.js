@@ -1,4 +1,5 @@
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 const passport = require("passport");
 const genPassword = require('../lib/passwordUtils').genPassword;
 const user = require("../model/UserModel");
@@ -15,20 +16,24 @@ router.post('/login', passport.authenticate('local',
 
 // TODO
 router.post('/register', (req, res, next) => {
-    const saltHash = genPassword(req.body.password);
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    const saltHash = genPassword(req.body.user.password);
 
     var salt = saltHash.salt;
     var hash = saltHash.hash;
 
     const newUser = new user({
-        name: req.body.username,
+        name: req.body.user.name,
+        email:req.body.user.email,
+        age:req.body.user.age,
+        phoneNumber: req.body.user.phoneNumber,
         hash: hash,
         salt: salt,
         admin:false
     });
 
     newUser.save();
-    res.redirect("/login");
 });
 
 
