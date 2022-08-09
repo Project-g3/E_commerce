@@ -23,12 +23,11 @@ export class SingleProductPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // Accessing Product Id from URL using 
+    // Accessing Product Id from URL using query parameter
     this.router.queryParams
       .subscribe(params => {
         this.pId = params; //saving it to a variable
         this.pId = this.pId.pID;
-        console.log(this.pId);
       })
 
     // Accessing single product list from server
@@ -36,7 +35,6 @@ export class SingleProductPageComponent implements OnInit {
     .subscribe((result)=>{
       this.SingleProdList = result;
       this.SingleProdList = this.SingleProdList[0];
-      console.log(JSON.parse(JSON.stringify(this.SingleProdList)));
       
       //Setting data to variables 
       this.pname = this.SingleProdList.name;

@@ -20,7 +20,6 @@ export class ProductRightTextComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.pShortDesc);
     
   }
 

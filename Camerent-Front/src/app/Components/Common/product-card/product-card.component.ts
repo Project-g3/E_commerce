@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 })
 export class ProductCardComponent implements OnInit {
   cli(){
-    console.log('clicked');
     this.router.navigate(['single-product'],{queryParams:{pID:this.item._id}});
   }
   item :any;
