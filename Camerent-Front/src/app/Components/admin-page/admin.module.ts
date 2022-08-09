@@ -12,6 +12,7 @@ import { AdminStaffComponent } from './admin-staff/admin-staff.component';
 import { RouterModule } from '@angular/router';
 import { AddProductsModalComponent } from './admin-products/add-products-modal/add-products-modal.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateProductModalComponent } from './admin-products/update-product-modal/update-product-modal.component';
 
 
 
@@ -27,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     AdminStaffComponent,
     AdminCategoryComponent,
     AdminSidenavComponent,
-    AddProductsModalComponent
+    AddProductsModalComponent,
+    UpdateProductModalComponent
   ],
   imports: [
      CommonModule,

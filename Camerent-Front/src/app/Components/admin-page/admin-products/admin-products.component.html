@@ -63,11 +63,23 @@
           <td>{{i.desc}}</td>
           <td>{{i.imgUrl}}</td>
           <td>{{i.brand}}</td>
-          <td><button class="btn bg-success text-white w-100" >Upload</button><button class="btn bg-danger text-white w-100 mt-1">Delete</button></td>
+          <td><button class="btn bg-success text-white w-100" data-toggle="modal" data-target=".UpdateModel" >Upload</button><button class="btn bg-danger text-white w-100 mt-1">Delete</button></td>
         </ng-container>
         
       </tr>
 
     </tbody>
   </table>
+  
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn bg-success text-white" data-toggle="modal" data-target=".bd-example-modal-lg">
+      Add Products</button> -->
+    
+
+      <!-- Update Modal -->
+    <div class="modal fade UpdateModel" tabindex="-1" id="modelID" role="dialog" aria-labelledby="myLargeModalLabel"
+      aria-hidden="true">
+      <app-update-product-modal></app-update-product-modal>
+    </div>
+  
 </div>
