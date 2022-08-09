@@ -13,4 +13,8 @@ export class HttpService {
     return this.http.get('http://localhost:3210/admin-dash');
     
   }
+
+  getSingleProduct(pid:any){
+    return this.http.get(`http://localhost:3210/admin-dash/${pid}`);
+  }
 }
