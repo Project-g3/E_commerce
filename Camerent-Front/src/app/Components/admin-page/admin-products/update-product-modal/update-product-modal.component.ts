@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-update-product-modal',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateProductModalComponent implements OnInit {
 
+  @Input() id :any;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.id);
   }
 
 }

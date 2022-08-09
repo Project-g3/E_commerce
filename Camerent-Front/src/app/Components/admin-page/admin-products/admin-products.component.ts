@@ -19,6 +19,7 @@ export class AdminProductsComponent implements OnInit {
 
   productsList : any;
   products :any;
+  updateId : any;
 
 
   // category 
@@ -81,6 +82,10 @@ export class AdminProductsComponent implements OnInit {
     
   }
   
+  updatefun(id:any){
+    this.updateId = id;
+    console.log(this.updateId);
+  }
 
 
 
