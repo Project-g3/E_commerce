@@ -87,6 +87,14 @@ export class AdminProductsComponent implements OnInit {
     console.log(this.updateId);
   }
 
+  deleteFunc(id:any){ 
+    let result = confirm('Are you sure, you want to delete this item from the database ?');
+
+    if(result){
+      alert('data has been succesfully deleted');
+    }
+
+  }
 
 
 
