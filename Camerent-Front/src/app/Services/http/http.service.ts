@@ -14,9 +14,16 @@ export class HttpService {
     return this.http.get('http://localhost:3210/admin-dash');
     
   }
-
+  // register new account
   registerAcc(data:any){
-    this.http.post('http://localhost:3210/register',{"user":data})
-    .subscribe()
+    return this.http.post('http://localhost:3210/register',{"user":data})
+    .subscribe((res)=>{
+      console.log("Creater");
+    },err=>console.log(err))
+  }
+
+  // login
+  login(login:any){
+    return this.http.post('http://localhost:3210/login',{"login":login})
   }
 }

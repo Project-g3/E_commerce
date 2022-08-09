@@ -19,7 +19,7 @@ import { ProofVeriComponent } from './Components/user/proof-veri/proof-veri.comp
 import { UserSideComponent } from './Components/user/user-side/user-side.component';
 
 const routes: Routes = [
-  {path:'',component:CarouselHeadComponent},
+  {path:'home',component:CarouselHeadComponent},
   {path:'products',component:ProductsPageComponent},
   {path:'single-product',component:SingleProductPageComponent},
 
