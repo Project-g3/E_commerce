@@ -11,6 +11,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { AppComponent } from './app.component';
 import { ModulesModule } from './modules/modules.module';
+import { AuthService } from './Services/Auth/auth.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './Services/token/token-interceptor.service';
 
 
 
@@ -22,7 +25,13 @@ import { ModulesModule } from './modules/modules.module';
   imports: [
     ModulesModule,
   ],
-  providers: [],
+  providers: [AuthService,{
+
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi: true
+    
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './Auth-guard/auth.guard';
 import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { AdminCategoryComponent } from './Components/admin-page/admin-category/admin-category.component';
 import { AdminCustomersComponent } from './Components/admin-page/admin-customers/admin-customers.component';
@@ -20,7 +21,9 @@ import { UserSideComponent } from './Components/user/user-side/user-side.compone
 
 const routes: Routes = [
   {path:'home',component:CarouselHeadComponent},
-  {path:'products',component:ProductsPageComponent},
+  {path:'products',
+  canActivate:[AuthGuard],
+  component:ProductsPageComponent},
   {path:'single-product',component:SingleProductPageComponent},
 
   {path:'admin-dashboard',component:AdminPageComponent,

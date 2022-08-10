@@ -59,10 +59,9 @@ export class RegisterComponent {
     await this.http.registerAcc(this.registerForm.value)
     await setTimeout(() => {
       this.modal.toggleModal('auth');
-
+      this.registerForm.reset();
       this.router.navigate(['home'])
-      
+      this.showAlert = false;
     }, 3000);
-   
   }
 }
