@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/Camerent');
 
-// creating a schema for products
 
 var schema = mongoose.Schema;
+
+mongoose.connect(process.env.DB_STRING);
+
 
 const products = new schema({
     id : String,

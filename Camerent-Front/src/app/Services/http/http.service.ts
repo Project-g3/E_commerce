@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Data } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,22 @@ export class HttpService {
     
   }
 
+  // get single product
   getSingleProduct(pid:any){
     return this.http.get(`http://localhost:3210/admin-dash/${pid}`);
+  }
+  
+  
+  // register new account
+  registerAcc(data:any){
+    return this.http.post('http://localhost:3210/register',{"user":data})
+    .subscribe((res)=>{
+      console.log("Creater");
+    },err=>console.log(err))
+  }
+
+  // login
+  login(login:any){
+    return this.http.post('http://localhost:3210/login',{"login":login})
   }
 }

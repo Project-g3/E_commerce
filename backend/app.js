@@ -29,6 +29,7 @@ const sessionStore = new MongoStore({
   uri: process.env.DB_STRING,
   collection: 'session'
 });
+
 // Session Middleware 
 app.use(session({
   secret: process.env.SECRET,
@@ -63,11 +64,11 @@ app.use(routes);
 app.use('/admin-dash',adminRoute);
 
 
-app.get('/',(req,res)=>{
-  res.header("Access-Control-Allow-Orgin","*");
-  res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
-  res.send('working fine');
-});
+// app.get('/',(req,res)=>{
+//   res.header("Access-Control-Allow-Orgin","*");
+//   res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+//   res.send('working fine');
+// });
 
 app.listen(3210, () => {
   console.log("app running on http://localhost:3210/")

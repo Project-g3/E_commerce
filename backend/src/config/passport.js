@@ -5,11 +5,11 @@ const User =require("../model/UserModel");
 const validPassword = require("../lib/passwordUtils").validPassword;
 
 // const customField = {
-    // usernameField : "uname",
-    // passwordField : "pw"
+//     usernameField : "login.email",
+//     passwordField : "login.password"
 // }
 
-// 
+
 const verifyCallback = (username, password, done)=>{
     User.findOne({username:username})
     .then((user)=>{

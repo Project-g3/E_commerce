@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'; //container for forms
+import { Router } from '@angular/router';
+import { HttpService } from 'src/app/Services/http/http.service';
+import { ModalService } from 'src/app/Services/modal/modal.service';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'; //container
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  constructor(private http:HttpService,private router:Router,private modal:ModalService){}
 
   // create new form fields
    name = new FormControl('', [
@@ -46,15 +50,19 @@ export class RegisterComponent {
     email:this.email,
     age:this.age,
     password:this.password,
-    confirm_password:this.confirm_password,
     phoneNumber:this.phoneNumber 
   });
 
-  register(){
+   async register(){
     this.showAlert = true;
-    this.alertMsg = 'Please wait! Your account is being Created!';//reset
-    this.alertColor = 'blue';//reset
+
+    await this.http.registerAcc(this.registerForm.value)
+    await setTimeout(() => {
+      this.modal.toggleModal('auth');
+
+      this.router.navigate(['home'])
+      
+    }, 3000);
+   
   }
-
-
 }
