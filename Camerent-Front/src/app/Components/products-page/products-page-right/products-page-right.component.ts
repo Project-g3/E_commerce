@@ -15,7 +15,6 @@ export class ProductsPageRightComponent implements OnInit {
     this.httpObj.getProducts()
     .subscribe((data)=>{
       this.products = data;
-      console.log(data);
     })
   }
 
