@@ -34,7 +34,7 @@ const routes: Routes = [
   {
     path:'products',
   // guard for users
-    canActivate:[AuthGuard],
+  // canActivate:[AuthGuard],
     component:ProductsPageComponent,
     title: 'Camerent-Products'
   },
@@ -84,7 +84,7 @@ const routes: Routes = [
     {
       path:'products',
       component:AdminProductsComponent,
-      title: 'Camerent-Products'
+      title: 'Camerent-Admin-Products'
     }
   ]},
 

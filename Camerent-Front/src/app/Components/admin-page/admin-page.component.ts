@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Services/Auth/auth.service';
 import { navData } from './nav-data';
 
 @Component({
@@ -7,11 +8,16 @@ import { navData } from './nav-data';
   styleUrls: ['./admin-page.component.css']
 })
 export class AdminPageComponent implements OnInit {
+
+  constructor(private _auth:AuthService){}
   collapsed = false;
   navData = navData;
-  constructor() { }
 
   ngOnInit(): void {
   }
 
+  logout($event:Event){
+    $event.preventDefault();
+    this._auth.logoutUser();
+  }
 }
