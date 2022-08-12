@@ -3,7 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } 
 
 
 /* Setting up universal colors  */
@@ -27,9 +28,6 @@
     background-color: var(--nav-color);
 }
 
-*{
-    font-family: 'Poppins', sans-serif !important;
-}
 p,h1,h2,h3,h4,h5,h6,a ,ul,li{
     color:white;
     font-family: 'Poppins', sans-serif;
@@ -39,11 +37,11 @@ nav{
     letter-spacing: 2px;
 }
 
-li{
+ li{
     list-style-type: none;
     padding: 0;
     margin: 0;
-}
+} 
 
 a:hover{
     color:white;
@@ -54,9 +52,9 @@ a:hover{
     font-size: 1.5rem;
     font-weight: 300;
     letter-spacing: 4px;
-}
+} 
 /* universal */
-.rounded {
+ .rounded {
     border-radius: 5px;
 }
 .main-body{
@@ -67,15 +65,11 @@ a:hover{
 .Active{
     background-color: var(--nav-color);
   padding: 3px;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+} 
 
-
+ 
 
 /************** scrollbar ********************/
-
-
 /* width */
 ::-webkit-scrollbar {
     height: 8px;
