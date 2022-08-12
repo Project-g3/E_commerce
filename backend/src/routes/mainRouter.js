@@ -1,18 +1,38 @@
 const express = require("express");
 const router = express.Router();
-const passport = require("passport");
+const jwt = require('jsonwebtoken');
 const genPassword = require('../lib/passwordUtils').genPassword;
+const validPassword = require('../lib/passwordUtils').validPassword;
 const user = require("../model/UserModel");
 const isAuth= require("./authMiddleware").isAuth;
-const isAdmin = require("./authMiddleware").isAdmin;
 
 
 // TODO
-router.post('/login', passport.authenticate('local',
-{ 
-    failureRedirect: "/login-failure",
-    successRedirect: "/login-sucess" 
-}));
+router.post('/login', (req, res, next) => {
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    let userData = req.body.userData;
+    console.log(userData)
+    user.findOne({email:userData.email})
+    .then((user)=>{
+        if(!user){
+            res.status(401).send('invald User')
+        }
+        if (!validPassword(userData.password, user.hash, user.salt))
+        {
+            res.status(401).send('invald User')
+
+        }
+        else
+        {   
+            let isadmin = user.admin;
+            let payload = {subject:userData.email+userData.password}
+            let token = jwt.sign(payload,'secretKey')
+            res.status(200).send({token,isadmin});
+        }
+    })
+
+});
 
 // TODO
 router.post('/register', (req, res, next) => {
@@ -53,7 +73,7 @@ router.get('/protected-route',isAuth, (req, res, next) => {
 
 });
 // admin check 
-router.get('/admin', isAdmin ,(req, res, next) => {
+router.get('/admin',(req, res, next) => {
     res.send("admin !!!!!!!!!!!!!!")
 
 });
@@ -68,7 +88,7 @@ router.get('/logout', (req, res, next) => {
 
 });
 
-router.get('/login-success', (req, res, next) => {
+router.get('/login-success', isAuth,(req, res, next) => {
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
     console.log("logged in!") 

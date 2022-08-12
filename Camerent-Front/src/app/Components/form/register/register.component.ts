@@ -55,14 +55,16 @@ export class RegisterComponent {
 
    async register(){
     this.showAlert = true;
-
+//  registering user
     await this.http.registerAcc(this.registerForm.value)
-    await setTimeout(() => {
+    setTimeout(() => {
+      // close modal
       this.modal.toggleModal('auth');
-
+      // resetting form
+      this.registerForm.reset();
       this.router.navigate(['home'])
-      
+      // resetting alert
+      this.showAlert = false;
     }, 3000);
-   
   }
 }

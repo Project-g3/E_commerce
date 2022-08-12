@@ -1,10 +1,14 @@
 .nav-link:hover{
-    
+    color: rgba(255, 255, 255, 0.363);
     transform: scale(0.9);   
 }
 
 
-
+.body{background: black !important;}
+.nav-link{
+    color: white;
+    font-size: 17px;
+}
 
 .cart:hover{
     transform: scale(1.4);
@@ -12,14 +16,14 @@
 
 .active{
     background-color: var(--component-color);
-}
+} 
 
 .dropdown-item{
     font-size: 13px;
 }
 .dropdown-item:hover{
     background-color: var(--component-color);
-    color:white
+    color:gray;
 }
 
 

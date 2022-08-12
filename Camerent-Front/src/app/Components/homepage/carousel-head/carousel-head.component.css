@@ -1,0 +1,25 @@
+.bg{background: black !important;}
+.carousel-caption {
+    top: 50%;
+    
+}
+.carousel-action {
+	padding: 10px 0 30px;
+}
+.carousel-action .btn {
+	min-height: 34px;
+	border-radius: 0;
+	margin: 3px;
+	min-width: 150px;
+	text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+}
+.carousel-action .btn-primary {
+	border-color: #000;
+	background: none;
+	color: #000;
+}
+.carousel-action .btn-primary:hover {
+	background: #000;
+	color: #fff;
+}

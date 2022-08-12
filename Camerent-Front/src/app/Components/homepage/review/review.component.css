@@ -1,5 +1,6 @@
+
 h2 {
-	color: black;
+	color: white;
 	font-size: 26px;
 	font-weight: 300;
 	text-align: center;
@@ -20,16 +21,19 @@ h2::after {
 	bottom: -20px;
 }
 .card{
-    
+    background:#212120!important;
     border:none;
 }
 
 .user-content p{
     margin-top:5px;
     font-size:12px;
+	color:white;
 }
 
-
+h2,h5,span{
+	color:white;
+}
 .ratings i{
     color:gold;
 }

@@ -23,14 +23,8 @@ export class HttpService {
   
   // register new account
   registerAcc(data:any){
-    return this.http.post('http://localhost:3210/register',{"user":data})
-    .subscribe((res)=>{
-      console.log("Creater");
-    },err=>console.log(err))
+    this.http.post('http://localhost:3210/register',{'user': data})
+      .subscribe()
   }
 
-  // login
-  login(login:any){
-    return this.http.post('http://localhost:3210/login',{"login":login})
-  }
 }
