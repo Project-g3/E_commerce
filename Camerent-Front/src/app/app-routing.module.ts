@@ -11,6 +11,7 @@ import { AdminPageComponent } from './Components/admin-page/admin-page.component
 import { AdminProductsComponent } from './Components/admin-page/admin-products/admin-products.component';
 import { AdminSettingsComponent } from './Components/admin-page/admin-settings/admin-settings.component';
 import { AdminStaffComponent } from './Components/admin-page/admin-staff/admin-staff.component';
+import { CartComponent } from './Components/cart/cart.component';
 import { CarouselHeadComponent } from './Components/homepage/carousel-head/carousel-head.component';
 import { ProductsPageComponent } from './Components/products-page/products-page.component';
 import { SingleProductPageComponent } from './Components/single-product-page/single-product-page.component';
@@ -34,7 +35,6 @@ const routes: Routes = [
   {
     path:'products',
   // guard for users
-  // canActivate:[AuthGuard],
     component:ProductsPageComponent,
     title: 'Camerent-Products'
   },
@@ -44,7 +44,11 @@ const routes: Routes = [
     component:SingleProductPageComponent,
     title: 'Camerent-Products'
   },
-
+  { path: 'cart', 
+    component: CartComponent,
+    canActivate:[AuthGuard],
+    title:'Camerent-Cart' 
+},
   {
     path:'admin-dashboard',
     // guard for admin
