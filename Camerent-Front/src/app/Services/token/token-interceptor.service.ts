@@ -1,6 +1,5 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import { HttpInterceptor} from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import { Observable } from 'rxjs';
 import { AuthService } from '../Auth/auth.service';
 
 @Injectable({
@@ -10,7 +9,9 @@ export class TokenInterceptorService implements HttpInterceptor{
 
   constructor(private injector:Injector) { }
   intercept(req:any,next:any){
+    // inject Auth service file
     let authService =this.injector.get(AuthService)
+    // cloning the request and setting the header
     let tokenizedReq = req.clone(
       {
         setHeaders:{
@@ -18,6 +19,7 @@ export class TokenInterceptorService implements HttpInterceptor{
         }
       }
     )
+    // passes this cloned to request
     return next.handle(tokenizedReq);
   }
 }

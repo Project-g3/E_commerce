@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 
 // Angular modules
 import { FormsModule } from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 // **************************
 
 import { AppComponent } from './app.component';
@@ -20,17 +20,18 @@ import { TokenInterceptorService } from './Services/token/token-interceptor.serv
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
   ],
   imports: [
     ModulesModule,
   ],
-  providers: [AuthService,{
-
-    provide:HTTP_INTERCEPTORS,
-    useClass:TokenInterceptorService,
+  //services
+  providers: [AuthService, {
+    // 
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
     multi: true
-    
+
   }],
   bootstrap: [AppComponent]
 })

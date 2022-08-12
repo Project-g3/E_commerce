@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/Services/Auth/auth.service';
 import { ModalService } from 'src/app/Services/modal/modal.service';
 
 @Component({
@@ -18,7 +20,7 @@ export class NavbarComponent implements OnInit {
     { name:'Accesories',link:'accesories' },
     { name:'About',link:'about' }
   ]
-  constructor(private modal: ModalService) { }
+  constructor(private modal: ModalService, public _auth:AuthService, private _router:Router) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +30,11 @@ export class NavbarComponent implements OnInit {
 
     this.modal.toggleModal('auth');
   }
-
-
+// logout by clearing localStorage
+  logoutUser($event:Event){
+    $event.preventDefault();
+    localStorage.removeItem('token')
+    localStorage.removeItem('admin')
+    this._router.navigate(['home'])
+  }
 }

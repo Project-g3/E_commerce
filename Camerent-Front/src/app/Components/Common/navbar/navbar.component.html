@@ -53,9 +53,12 @@
             </li>
             <!-- login -->
             <li class="nav-item  pr-1" >
-              <a class="nav-link" href="#" (click)="openModal($event)">Login/Signup</a>
+              <a class="nav-link" href="#" *ngIf="!_auth.loggedIn()" (click)="openModal($event)">Login/Signup</a>
             </li>
-            
+            <!-- logout -->
+             <li class="nav-item  pr-1" >
+              <a class="nav-link" href="#" *ngIf="_auth.loggedIn()"(click)="logoutUser($event)" >Logout</a>
+            </li>
             
           </ul>
           <!-- cart Icon -->
