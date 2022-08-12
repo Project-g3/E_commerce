@@ -1,25 +1,25 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// // mongoose.connect('mongodb://localhost:27017/Camerent');
+mongoose.connect(process.env.DB_STRING);
 
-// // creating a schema for products
+// creating a schema for products
 
-// var schema = mongoose.Schema;
+var schema = mongoose.Schema;``
 
-// const products = new schema({
-//     id : String,
-//     name : String,
-//     price : Number,
-//     shortDesc : String,
-//     desc : String,
-//     imgUrl : String,
-//     category : String,
-//     brand : String
+const products = new schema({
+    id : String,
+    name : String,
+    price : Number,
+    shortDesc : String,
+    desc : String,
+    imgUrl : String,
+    category : String,
+    brand : String
 
-// });
+});
 
-// var productData = mongoose.model('product',products);
+var productData = mongoose.model('product',products);
 
-// module.exports = productData;
+module.exports = productData;
 
 

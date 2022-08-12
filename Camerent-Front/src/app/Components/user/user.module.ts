@@ -5,6 +5,8 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AddressComponent } from './address/address.component';
 import { ProofVeriComponent } from './proof-veri/proof-veri.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,6 +20,8 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
   ],
   imports: [
     AppRoutingModule,
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [
     UserSideComponent,

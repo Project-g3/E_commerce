@@ -6,7 +6,7 @@ require("dotenv").config();
 const conn = process.env.DB_STRING;
 
 // connecting database
- mongoose.connect(conn,{
+mongoose.connect(conn,{
 
     //underlying MongoDB driver has deprecated their current connection string parser. Because this is a major change, they added the useNewUrlParser flag to allow users to fall back to the old parser if they find a bug in the new parser. You should set useNewUrlParser: true unless that prevents you from connecting.
     useNewUrlParser: true,
@@ -19,9 +19,10 @@ const conn = process.env.DB_STRING;
 const UserSchema = new mongoose.Schema({
     name:String,
     email:String,
+    age:Number,
     address:String,
-    admin:Boolean,
     phoneNumber:Number,
+    admin: Boolean,
     hash:String,//for passport
     salt:String //for passport
 });

@@ -1,5 +1,36 @@
-<div>
-    <div class="h-screen bg-white">
-        
+
+
+<div class=" p-6  h-screen flex justify-evenly content-center">
+  <form  [formGroup]="userForm" (ngSubmit)="change()" class="text-slate-400 w-96 h-max pt-20">
+    <div class="form-group mb-6">
+        <label class="inline-block mb-2">Name</label>
+        <app-input [control]="name" placeholder="Enter name"></app-input>
+
     </div>
+    <div class="form-group mb-6">
+       <label class="inline-block mb-2">Email</label>
+        <app-input [control]="email" type="email" placeholder="Enter email"></app-input>
+    </div>
+    <div class="form-group mb-6">
+      <label class="inline-block mb-2">Age</label>
+          <app-input class="" type="number" placeholder="Enter age"></app-input>
+    </div>
+     <div class="form-group mb-6">
+      <label class="inline-block mb-2">Password</label>
+      <app-input [control]="password" type="password" placeholder="Enter password"></app-input>
+    </div>
+     <div class="form-group mb-6">
+      <label class="inline-block mb-2">Phone Number</label>
+              <app-input [control]="phoneNumber" format="0000000000" 
+              placeholder="Enter Phone Number"></app-input>
+    </div>
+    
+    <button type="submit"
+              class="block w-2/5 bg-indigo-400 text-white py-1.5 px-3 rounded transition
+                hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400"
+              [disabled]="userForm.invalid">
+              Submit
+            </button>
+  </form>
 </div>
+              

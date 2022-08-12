@@ -1,7 +1,5 @@
 // nodejs inbulid crypto for cryptography
 const crypto = require("crypto");
-const passport = require("passport")
-const User= require("../model/UserModel")
 
 // generate salt and hash for given password
 function genPassword(password) {
@@ -22,17 +20,3 @@ function validPassword(password, hash , salt){
 
 module.exports.validPassword = validPassword;
 module.exports.genPassword = genPassword;
-
-// initialise id by password
-passport.serializeUser((user, done) => {
-    done(null, user.id);
-})
-
-
-passport.deserializeUser((userId, done) => {
-    User.findById(userId)
-        .then((user) => {
-            done(null, user);
-        })
-        .catch(err => done(err))
-});

@@ -1,13 +1,13 @@
 
     <nav class=" navbar navbar-expand-lg container-fluid body nav-color text-white py-4  ">
-        <a class="navbar-brand pl-5 " routerLink="">Camerent</a>
+        <a class="navbar-brand pl-5 " routerLink="home">Camarent</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <img src="assets/Main Navbar/burgerMenu.png" alt="" width="40px">
         </button>
         <div class="collapse navbar-collapse pr-5 mr-4" id="navbarNav">
           <ul class="navbar-nav ml-auto pr-2" >
             <li class="nav-item pr-1 " >
-              <a class="nav-link " routerLink="">Home</a>
+              <a class="nav-link " routerLink="home">Home</a>
             </li>
             <!-- dropdown for camera -->
             <div class="dropdown pr-1">
@@ -53,9 +53,12 @@
             </li>
             <!-- login -->
             <li class="nav-item  pr-1" >
-              <a class="nav-link" href="#" (click)="openModal($event)">Login/Signup</a>
+              <a class="nav-link" href="#" *ngIf="!_auth.loggedIn()" (click)="openModal($event)">Login/Signup</a>
             </li>
-            
+            <!-- logout -->
+             <li class="nav-item  pr-1" >
+              <a class="nav-link" href="#" *ngIf="_auth.loggedIn()"(click)="logoutUser($event)" >Logout</a>
+            </li>
             
           </ul>
           <!-- cart Icon -->
