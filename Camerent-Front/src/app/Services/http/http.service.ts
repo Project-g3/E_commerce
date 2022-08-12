@@ -14,6 +14,13 @@ export class HttpService {
     return this.http.get('http://localhost:3210/admin-dash');
     
   }
+
+  // get single product
+  getSingleProduct(pid:any){
+    return this.http.get(`http://localhost:3210/admin-dash/${pid}`);
+  }
+  
+  
   // register new account
   registerAcc(data:any){
     this.http.post('http://localhost:3210/register',{'user': data})

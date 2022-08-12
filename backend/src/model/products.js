@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 
+
+
+var schema = mongoose.Schema;
+
 mongoose.connect(process.env.DB_STRING);
 
-// creating a schema for products
-
-var schema = mongoose.Schema;``
 
 const products = new schema({
     id : String,

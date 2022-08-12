@@ -2,6 +2,7 @@ const express = require('express');
 const bodyparser = require('body-parser')
 const cors = require('cors');
 const ProductData = require('../model/products');
+const productData = require('../model/products');
 
 const adminRouter = new express();
 
@@ -44,6 +45,15 @@ adminRouter.use(bodyparser.json());
       let data = ProductData(items);
       data.save();
     })  
+
+  // For getting single product
+    adminRouter.get('/:id',(req,res)=>{
+      console.log(req.params.id);
+      productData.find({_id:req.params.id})
+      .then((data)=>{
+        res.send(data);
+      })
+    })
 
 
 

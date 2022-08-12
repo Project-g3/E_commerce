@@ -19,6 +19,7 @@ export class AdminProductsComponent implements OnInit {
 
   productsList : any;
   products :any;
+  updateItem : any;
 
 
   // category 
@@ -81,7 +82,19 @@ export class AdminProductsComponent implements OnInit {
     
   }
   
+  updatefun(datas:any){
+    this.updateItem = datas;
+    console.log(this.updateItem);
+  }
 
+  deleteFunc(id:any){ 
+    let result = confirm('Are you sure, you want to delete this item from the database ?');
+
+    if(result){
+      alert('data has been succesfully deleted');
+    }
+
+  }
 
 
 
