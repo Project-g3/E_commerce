@@ -6,7 +6,6 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { AppRoutingModule } from "../app-routing.module";
 import { AboutModule } from "../Components/aboutus/about.module";
 import { AdminModule } from "../Components/admin-page/admin.module";
-import { CartComponent } from "../Components/cart/cart.component";
 import { CartModule } from "../Components/cart/cart.module";
 import { CommonsModule } from "../Components/Common/commons.module";
 import { FormModule } from "../Components/form/form.module";
