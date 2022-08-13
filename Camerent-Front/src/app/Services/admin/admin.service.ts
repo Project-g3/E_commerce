@@ -25,4 +25,11 @@ export class AdminService {
     .subscribe();
   }
 
+
+
+  // For getting users from backend
+  getCustomers(){
+    return this.adminService.get('http://localhost:3210/admin-dash/customers');
+  }
+
 }

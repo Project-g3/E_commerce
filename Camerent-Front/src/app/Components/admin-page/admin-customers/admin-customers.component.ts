@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/Services/admin/admin.service';
 
 @Component({
   selector: 'app-admin-customers',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCustomersComponent implements OnInit {
 
-  constructor() { }
+  users : any;
+
+  constructor(private adminServiceObj : AdminService) { }
 
   ngOnInit(): void {
+    this.adminServiceObj.getCustomers()
+    .subscribe(result=>{
+      this.users = JSON.parse(JSON.stringify(result));
+      console.log(this.users);
+    })
   }
 
 }
