@@ -63,7 +63,7 @@ adminRouter.use(bodyparser.json());
 
   // For getting single product
   adminRouter.get('/:id', (req, res) => {
-    console.log(req.params.id);
+    
     productData.find({ _id: req.params.id })
       .then((data) => {
         res.send(data);
