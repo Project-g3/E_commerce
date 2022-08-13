@@ -1,4 +1,6 @@
 import { Component, OnInit,EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminService } from 'src/app/Services/admin/admin.service';
 import { HttpService } from 'src/app/Services/http/http.service';
 import { Products } from './admin-products.model';
 
@@ -29,19 +31,7 @@ export class AdminProductsComponent implements OnInit {
     'ds'
   ]
 
-  // function for searching by category
-  // searchByCategory(value:any){
-  //   this.products.forEach((a:any)=>{
-      
-  //     if(a.category===value){
-  //       this.products.push(a);
-  //       console.log(a);
-  //     }
-
-  //   })
-  //   this.productsList = this.products
-  // }
-
+// search filter
   searchFilter(name:any){
     let text = this.searchbyname.trim().toLocaleLowerCase();
     let temp  = new Array;
@@ -81,21 +71,30 @@ export class AdminProductsComponent implements OnInit {
     }
     
   }
-  
+// updateModal passing data
   updatefun(datas:any){
     this.updateItem = datas;
     console.log(this.updateItem);
   }
-
+// delete single product from database
   deleteFunc(id:any){ 
     let result = confirm('Are you sure, you want to delete this item from the database ?');
 
     if(result){
+      this.adminServiceObj.deleteProduct(id);
       alert('data has been succesfully deleted');
+      
+      // setting the data again
+      this.httpObj.getProducts()
+        .subscribe((data) => {
+          this.products = JSON.parse(JSON.stringify(data));
+          this.productsList = this.products;
+        })
     }
 
   }
 
+  // For refreshing the table
   refresh(){
     this.httpObj.getProducts()
     .subscribe((data)=>{
@@ -108,7 +107,7 @@ export class AdminProductsComponent implements OnInit {
   
   
     
-  constructor(private httpObj : HttpService) { 
+  constructor(private httpObj : HttpService,private adminServiceObj : AdminService) { 
     
   }
 

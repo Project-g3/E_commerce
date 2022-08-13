@@ -87,6 +87,17 @@ adminRouter.use(bodyparser.json());
     })
   }) 
 
+  // For deleting single product
+  adminRouter.post('/deleteProduct',(req,res)=>{
+    res.header("Access-Control-Allow-Orgin","*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    console.log(req.body.pId);
 
+    productData.deleteOne({_id:req.body.pId})
+    .then((result)=>{
+      console.log(result);
+      console.log('data deleted');
+    })
+  }) 
 
 module.exports = adminRouter;
