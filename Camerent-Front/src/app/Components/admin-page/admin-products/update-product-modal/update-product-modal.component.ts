@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { AdminService } from 'src/app/Services/admin/admin.service';
 
 @Component({
   selector: 'app-update-product-modal',
@@ -35,8 +36,12 @@ export class UpdateProductModalComponent implements OnInit {
       if(formdata.value.longDesc!=''){
         product.desc = formdata.value.longDesc;
       }
-      console.log(product.name,product.price,product.category,product.brand,product.shortDesc,product.desc);
-      this.router.navigate(['/admin-dashboard/products']);
+      console.log(product._id,product.name,product.price,product.category,product.brand,product.shortDesc,product.desc);
+      // this.router.navigate(['/admin-dashboard/products']);
+
+      this.adminServiceObj.updateProduct(product);
+      alert('The Successfully Updated to database');
+      
     }
     
 
@@ -47,7 +52,7 @@ export class UpdateProductModalComponent implements OnInit {
 
  
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private adminServiceObj:AdminService) { }
 
   ngOnInit(): void {
     

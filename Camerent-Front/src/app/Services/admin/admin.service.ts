@@ -13,5 +13,10 @@ export class AdminService {
     this.adminService.post('http://localhost:3210/admin-dash/addProducts',{'product':data})
     .subscribe();
   }
+  updateProduct(data:any){
+    this.adminService.post('http://localhost:3210/admin-dash/updateProduct',{'product':data})
+    .subscribe();
+  }
+  
 
 }

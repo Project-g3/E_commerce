@@ -55,6 +55,38 @@ adminRouter.use(bodyparser.json());
       })
     })
 
+  // For Updating single product
+  adminRouter.post('/updateProduct',(req,res)=>{
+    res.header("Access-Control-Allow-Orgin","*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    // console.log(req.body.product);
+
+    let items = {
+      id: req.body.product.id,
+      name: req.body.product.name,
+      price: req.body.product.price,
+      shortDesc: req.body.product.shortDesc,
+      desc: req.body.product.desc,
+      category: req.body.product.category,
+      brand: req.body.product.brand
+
+    }
+    ProductData.updateOne({_id:req.body.product._id},
+      {$set:
+        {
+          name:items.name,
+          price:items.price,
+          shortDesc:items.shortDesc,
+          desc:items.desc,
+          category:items.category,
+          brand:items.brand
+
+        }})
+    .then((result)=>{
+      // console.log(result);
+    })
+  }) 
+
 
 
 module.exports = adminRouter;
