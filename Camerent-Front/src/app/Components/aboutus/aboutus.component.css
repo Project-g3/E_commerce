@@ -12,7 +12,7 @@
 #content{
     align-items: center;
     justify-content: center;
-    background-color: rgba(52, 49, 49, 0.5);
+    /* background-color: rgba(52, 49, 49, 0.5); */
     color: white;  
 }
 .paddingTB60 {padding:80px;}

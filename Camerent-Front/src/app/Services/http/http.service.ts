@@ -27,4 +27,9 @@ export class HttpService {
       .subscribe()
   }
 
+  // add to cart
+  addcart(id:any){
+    // to be updated in database
+    // console.log(id)
+  }
 }

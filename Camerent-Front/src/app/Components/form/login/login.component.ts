@@ -25,8 +25,9 @@ export class LoginComponent implements OnInit {
     this._auth.loginUser(this.credentials)
     .subscribe((res)=>{
       // token stoting
-      localStorage.setItem('token',res.token)
-      localStorage.setItem('admin',res.isadmin)
+      localStorage.setItem('token',res.token);
+      localStorage.setItem('admin',res.isadmin);
+      localStorage.setItem('userID',res.userID);
       // simple timeout for a delay
       setTimeout(() => {
         setTimeout(() => {
