@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   exports:[
     FooterComponent,

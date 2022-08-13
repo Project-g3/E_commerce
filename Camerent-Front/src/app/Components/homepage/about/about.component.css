@@ -19,7 +19,8 @@ h2 {
     box-shadow: 0 20px 40px rgba(230, 230, 230, 0.2)
 }
 .img{
-    margin-bottom: 35px;
+    display: initial !important;
+    margin: 35px 35px;
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222)
 }
