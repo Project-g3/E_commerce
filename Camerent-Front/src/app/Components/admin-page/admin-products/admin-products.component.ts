@@ -96,7 +96,13 @@ export class AdminProductsComponent implements OnInit {
 
   }
 
-
+  refresh(){
+    this.httpObj.getProducts()
+    .subscribe((data)=>{
+      this.products = JSON.parse(JSON.stringify(data));
+      this.productsList = this.products;
+    })
+  }
 
 
   
