@@ -34,7 +34,7 @@ export class CartService {
     .subscribe(async (product) => {
       this.cartItemList.push(product);
       await this.http.addcart(product);
-      this.productList.next(this.cartItemList);
+      this.productList.next(product);
       this.getTotalPrice();
       // console.log(this.cartItemList)
   })
