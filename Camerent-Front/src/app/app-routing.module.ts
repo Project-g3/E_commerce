@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminGuardGuard } from './Admin-guard/admin-guard.guard';
 import { AuthGuard } from './Auth-guard/auth.guard';
 import { AboutusComponent } from './Components/aboutus/aboutus.component';
+import { TermsComponent }  from './Components/terms/terms.component';
 import { AdminCategoryComponent } from './Components/admin-page/admin-category/admin-category.component';
 import { AdminCustomersComponent } from './Components/admin-page/admin-customers/admin-customers.component';
 import { AdminDashComponent } from './Components/admin-page/admin-dash/admin-dash.component';
@@ -91,12 +92,14 @@ const routes: Routes = [
     }
   ]},
 
+
+  {path:'terms',component:TermsComponent},
+
   {
     path:'about',
     component:AboutusComponent,
     title: 'Camerent-About'
   },
-
   {
     path: 'user',
   // guard for users
