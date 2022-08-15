@@ -34,7 +34,7 @@ export class AddProductsModalComponent implements OnInit {
         console.log(data.value,data);
         // Starting of Firebase logic for upload of image
         for(let i=0;i<this.file.length;i++){
-          const storageRef = ref(this.storage,'ProductsImg/'+ this.file[i].name);
+          const storageRef = ref(this.storage,`ProductsImg/${data.value.productId}/`+ this.file[i].name);
           const uploadTask = uploadBytesResumable(storageRef, this.file[i]);
     
     
@@ -60,8 +60,10 @@ export class AddProductsModalComponent implements OnInit {
               getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                 console.log('File available at', downloadURL);
                 this.fileUrl.push(downloadURL);
+                // condition to check for all the download Url for files upload
                 if(this.fileUrl.length==this.file.length){
                   console.log("insert function");
+                  // service call to insert
                   let products = data.value;
                   products.imagesUrl=this.fileUrl;
                   this.adminServiceObj.addProduct(products);
