@@ -17,7 +17,7 @@ export class SingleProductPageComponent implements OnInit {
   pShortDesc : String = '';
   pPrice : any;
 
-  
+
   
   constructor(private router:ActivatedRoute,private httpObj:HttpService) { }
 
@@ -35,7 +35,7 @@ export class SingleProductPageComponent implements OnInit {
     .subscribe((result)=>{
       this.SingleProdList = result;
       this.SingleProdList = this.SingleProdList[0];
-      
+
       //Setting data to variables 
       this.pname = this.SingleProdList.name;
       this.pShortDesc = this.SingleProdList.shortDesc;
@@ -47,3 +47,5 @@ export class SingleProductPageComponent implements OnInit {
   }
 
 }
+
+
