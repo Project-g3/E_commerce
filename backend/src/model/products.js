@@ -15,7 +15,8 @@ const products = new schema({
     desc : String,
     imgUrl : String,
     category : String,
-    brand : String
+    brand : String,
+    imagesUrl: []
 
 });
 
