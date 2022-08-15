@@ -41,7 +41,7 @@
                 <div class="row">
                     <div class="form-group col-12">
                         <label for="imgUrl" class="w-100 mb-2">Image Upload</label>
-                        <input type="file" required name="imgUrl" ngModel id="imgUrl" accept="image/*">
+                        <input type="file" required name="imgUrl" ngModel id="imgUrl" accept="image/*" multiple (change)="change($event)">
                       </div>
                       <div class="form-group col-12">
                         <label for="shortDesc">Short Description</label>

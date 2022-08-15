@@ -54,9 +54,10 @@ adminRouter.use(bodyparser.json());
       desc: req.body.product.longDesc,
       imgUrl: req.body.product.imgUrl,
       category: req.body.product.productCategory,
-      brand: req.body.product.productBrand
-
+      brand: req.body.product.productBrand,
+      imagesUrl:req.body.product.imagesUrl
     }
+    console.log(items);
     let data = ProductData(items);
     data.save();
   })

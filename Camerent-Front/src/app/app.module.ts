@@ -10,6 +10,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 // **************************
 
+// Firebase modules
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp } from 'firebase/app';
+import { environment } from 'src/environments/environment';
+
+
 import { AppComponent } from './app.component';
 import { ModulesModule } from './modules/modules.module';
 import { AuthService } from './Services/Auth/auth.service';
@@ -25,6 +32,8 @@ import { TokenInterceptorService } from './Services/token/token-interceptor.serv
   ],
   imports: [
     ModulesModule,
+    provideFirebaseApp(()=>initializeApp(environment.firebase)),
+    provideStorage(()=>getStorage())
   ],
   //services
   providers: [AuthService, {
