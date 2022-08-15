@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-product-img-carousel',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-img-carousel.component.css']
 })
 export class ProductImgCarouselComponent implements OnInit {
+
+  @Input() product : any;
+  
   array = [
   {
     imgurl:'cam1.jpeg',
@@ -31,8 +34,8 @@ export class ProductImgCarouselComponent implements OnInit {
 ];
 
   // setting img in hover 
-  mouseenter(abc:any,mainImg:any){
-    mainImg.src='assets/productImg/'+abc;
+  mouseenter(i:any,mainImg:any){
+    mainImg.src=i;
   }
 
   constructor() { }
