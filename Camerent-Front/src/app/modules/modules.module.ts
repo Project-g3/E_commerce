@@ -6,6 +6,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { AppRoutingModule } from "../app-routing.module";
 import { AboutModule } from "../Components/aboutus/about.module";
 import { AdminModule } from "../Components/admin-page/admin.module";
+import { CartModule } from "../Components/cart/cart.module";
 import { CommonsModule } from "../Components/Common/commons.module";
 import { FormModule } from "../Components/form/form.module";
 import { HomepageModule } from "../Components/homepage/homepage.module";
@@ -29,6 +30,7 @@ import { UserModule } from "../Components/user/user.module";
     AboutModule,
     ProductspgeModule,
     SingleproductModule,
+    CartModule
   ],
   exports:[
     BrowserModule,
@@ -45,6 +47,7 @@ import { UserModule } from "../Components/user/user.module";
     AboutModule,
     ProductspgeModule,
     SingleproductModule,
+    CartModule
   ],
 })
 export class ModulesModule { }

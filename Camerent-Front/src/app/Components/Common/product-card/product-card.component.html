@@ -4,6 +4,6 @@
       <h3 class="card-title mb-0">{{item.name}}</h3>
       <p class="card-text">{{item.category}}</p>
       <span >Rating</span>
-      <h2>${{item.price}}/Day</h2>
+      <h2>{{item.price | currency:'INR':'symbol':'1.0-0'}}/Day</h2>
     </div>
 </div>

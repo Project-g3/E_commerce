@@ -30,8 +30,8 @@ export class ProductImgCarouselComponent implements OnInit {
   
 ];
 
+  // setting img in hover 
   mouseenter(abc:any,mainImg:any){
-    console.log('mouse enter',abc);
     mainImg.src='assets/productImg/'+abc;
   }
 

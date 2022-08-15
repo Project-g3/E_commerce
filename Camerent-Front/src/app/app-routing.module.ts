@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuardGuard } from './Admin-guard/admin-guard.guard';
+import { AuthGuard } from './Auth-guard/auth.guard';
 import { AboutusComponent } from './Components/aboutus/aboutus.component';
 import { TermsComponent }  from './Components/terms/terms.component';
 import { AdminCategoryComponent } from './Components/admin-page/admin-category/admin-category.component';
@@ -10,6 +12,7 @@ import { AdminPageComponent } from './Components/admin-page/admin-page.component
 import { AdminProductsComponent } from './Components/admin-page/admin-products/admin-products.component';
 import { AdminSettingsComponent } from './Components/admin-page/admin-settings/admin-settings.component';
 import { AdminStaffComponent } from './Components/admin-page/admin-staff/admin-staff.component';
+import { CartComponent } from './Components/cart/cart.component';
 import { CarouselHeadComponent } from './Components/homepage/carousel-head/carousel-head.component';
 import { ProductsPageComponent } from './Components/products-page/products-page.component';
 import { SingleProductPageComponent } from './Components/single-product-page/single-product-page.component';
@@ -20,31 +23,115 @@ import { ProofVeriComponent } from './Components/user/proof-veri/proof-veri.comp
 import { UserSideComponent } from './Components/user/user-side/user-side.component';
 
 const routes: Routes = [
-  {path:'',component:CarouselHeadComponent},
-  {path:'products',component:ProductsPageComponent},
-  {path:'single-product',component:SingleProductPageComponent},
+  {
+    path:'',
+    redirectTo: '/home', 
+    pathMatch: 'full'
+  },
+  {
+    path:'home',
+    component:CarouselHeadComponent,
+    title:'Camerent'
+  },
+  {
+    path:'products',
+  // guard for users
+    component:ProductsPageComponent,
+    title: 'Camerent-Products'
+  },
 
-  {path:'admin-dashboard',component:AdminPageComponent,
+  {
+    path:'single-product',
+    component:SingleProductPageComponent,
+    title: 'Camerent-Products'
+  },
+  { path: 'cart', 
+    component: CartComponent,
+    canActivate:[AuthGuard],
+    title:'Camerent-Cart' 
+},
+  {
+    path:'admin-dashboard',
+    // guard for admin
+    // canActivate:[AdminGuardGuard] ,
+    component:AdminPageComponent,
+    title: 'Camerent-Admin',
   children:[
-    {path:'',component:AdminDashComponent},
-    {path:'orders',component:AdminOrdersComponent},
-    {path:'category',component:AdminCategoryComponent},
-    {path:'settings',component:AdminSettingsComponent},
-    {path:'staff',component:AdminStaffComponent},
-    {path:'customers',component:AdminCustomersComponent},
-    {path:'products',component:AdminProductsComponent}
+    {
+      path:'',
+      component:AdminDashComponent,
+    },
+    {
+      path:'orders',
+      component:AdminOrdersComponent,
+      title: 'Camerent-Admin-Order'
+    },
+    {
+      path:'category',
+      component:AdminCategoryComponent,
+      title: 'Camerent-Admin-Catagory'
+    },
+    {
+      path:'settings',
+      component:AdminSettingsComponent,
+      title: 'Camerent-Admin-Settings'
+    },
+    {
+      path:'staff',
+      component:AdminStaffComponent,
+      title: 'Camerent-Admin-Staff'
+    },
+    {
+      path:'customers',
+      component:AdminCustomersComponent,
+      title: 'Camerent-Admin-Customers'
+    },
+    {
+      path:'products',
+      component:AdminProductsComponent,
+      title: 'Camerent-Admin-Products'
+    }
   ]},
 
-  {path:'about',component:AboutusComponent},
+
   {path:'terms',component:TermsComponent},
 
-  {path: 'user', component: UserSideComponent,
+  {
+    path:'about',
+    component:AboutusComponent,
+    title: 'Camerent-About'
+  },
+  {
+    path: 'user',
+    component: UserSideComponent,
+    title: 'Camerent-User',
     children: [
-      { path: '', component: AccountSettingsComponent },
-      { path: 'myorders', component: MyOrdersComponent },
-      { path: 'address', component: AddressComponent },
-      { path: 'proof-vali', component: ProofVeriComponent },
-  ]}
+      { 
+        path: '',
+        component: AccountSettingsComponent,
+      },
+      { 
+        path: 'myorders', 
+        component: MyOrdersComponent,
+        title: 'Camerent-My Orders'
+      },
+      { 
+        path: 'address', 
+        component: AddressComponent,
+        title: 'Camerent-User Address'
+      },
+      { 
+        path: 'proof-vali', 
+        component: ProofVeriComponent,
+        title: 'Camerent-User Proof'
+      },
+  ]},
+  // wildcard route - basic used for 404
+  // { 
+  //   path: "**", 
+  //   component: CarouselHeadComponent 
+  // },
+
 ]
 
 @NgModule({
