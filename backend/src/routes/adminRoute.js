@@ -17,10 +17,20 @@ adminRouter.use(bodyparser.json());
 
 // For admin Customer page
 {
+  // For getting customers
   adminRouter.get('/customers',(req,res)=>{
     UserData.find()
     .then((result)=>{
       res.send(result);
+    })
+  });
+
+  // For deleting a customer from database
+  adminRouter.post('/deleteUser',(req,res)=>{
+    UserData.deleteOne({_id:req.body.userid})
+    .then((result)=>{
+      console.log(result);
+      console.log('deleted a user');
     })
   })
 }
@@ -120,7 +130,6 @@ adminRouter.use(bodyparser.json());
 
 }
 
-// For Admin Customers Page
 
   
 

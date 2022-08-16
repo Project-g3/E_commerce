@@ -32,4 +32,11 @@ export class AdminService {
     return this.adminService.get('http://localhost:3210/admin-dash/customers');
   }
 
+
+  // For deleting user/customer from database
+  deleteUser(id:any){
+   return this.adminService.post('http://localhost:3210/admin-dash/deleteUser',{userid:id})
+   .subscribe();
+  }
+
 }
