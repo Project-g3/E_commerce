@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    padding: 50;
+    margin: 70;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.body{
+    background-color: #fff3e0;
+    background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1638&q=80');
+    background-size: cover;
+    
+}
+
+#order-heading{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(180,120,131,1) 27%, rgba(188,182,170,1) 35%);
+    position: relative;
+    border-top-left-radius: 25px;
+    max-width: 800px;
+    padding-top: 20px;
+    margin: 30px auto 0px;
+}
+#order-heading .text-uppercase{
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: 600;
+}
+#order-heading .h4{
+    font-weight: 600;
+}
+#order-heading .h4 + div p{
+    font-size: 0.8rem;
+    color: #777;
+}
+.close{
+    padding: 10px 15px;
+    background-color: #777;
+    border-radius: 50%;
+    position: absolute;
+    right: -15px;
+    top: -20px;
+}
+.wrapper{
+    padding: 0px 50px 50px;
+    max-width: 800px;
+    margin: 0px auto 40px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: rgba(236, 236, 207, 0.738);
+}
+.table th {
+    border-top: none;
+}
+.table thead tr.text-uppercase th{
+    font-size: 0.8rem;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.table tbody tr td img{
+ position:relative;
+ display: inline;
+}
+.table tbody tr th,
+.table tbody tr td{
+    font-size: 0.9rem;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+}
+.table-responsive{
+    height: 100px;
+}
+.list div b{
+    font-size: 0.8rem;
+}
+.list .order-item{
+    font-weight: 600;
+    color: #6db3ec;
+}
+.list:hover{
+    background-color: burlywood;
+    cursor: pointer;
+    border-radius: 5px;
+}
+label{
+    margin-bottom: 0;
+    padding: 0;
+    font-weight: 900;
+}
+button.btn{
+    font-size: 0.9rem;
+    background-color: #66cdaa;
+}
+button.btn:hover{
+    background-color: #5cb99a;
+}
+.price{
+    color: #5cb99a;
+    font-weight: 700;
+}p.text-justify{
+    font-size: 0.9rem;
+    margin: 0;
+    color: #000;
+}
+.row{
+    margin: 0px;
+}
+@media(max-width: 425px){
+    .wrapper{
+        padding: 20px;
+    }
+    body{
+        font-size: 0.85rem;
+    }
+    .subscriptions div{
+        padding-left: 5px;
+    }
+    img + label{
+        font-size: 0.75rem;
+    }
+
+}
