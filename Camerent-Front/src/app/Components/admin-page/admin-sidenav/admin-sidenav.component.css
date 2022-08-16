@@ -11,3 +11,8 @@
     background-color: var(--nav-color);
     padding: 3px;
   }
+
+  .Active{
+    background-color: var(--nav-color);
+  padding: 3px;
+  } 
