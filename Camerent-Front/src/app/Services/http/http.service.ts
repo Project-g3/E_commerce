@@ -12,7 +12,6 @@ export class HttpService {
 
   getProducts(){
     return this.http.get('http://localhost:3210/admin-dash');
-    
   }
 
   // get single product
@@ -29,7 +28,11 @@ export class HttpService {
 
   // add to cart
   addcart(id:any){
+    let cart={
+      "userID": localStorage.getItem('userID'),
+      "productID":id,
+    }
     // to be updated in database
-    // console.log(id)
+    this.http.post('http://localhost:3210/cart',{'Cart':cart})
   }
 }

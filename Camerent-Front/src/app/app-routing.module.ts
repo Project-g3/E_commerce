@@ -52,7 +52,7 @@ const routes: Routes = [
   {
     path:'admin-dashboard',
     // guard for admin
-    // canActivate:[AdminGuardGuard] ,
+    canActivate:[AdminGuardGuard] ,
     component:AdminPageComponent,
     title: 'Camerent-Admin',
   children:[
@@ -93,7 +93,11 @@ const routes: Routes = [
   ]},
 
 
-  {path:'terms',component:TermsComponent},
+  {
+    path:'terms',
+    component:TermsComponent,
+    title:'Camerent-T&C'
+  },
 
   {
     path:'about',

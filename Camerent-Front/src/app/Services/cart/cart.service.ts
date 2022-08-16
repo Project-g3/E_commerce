@@ -6,7 +6,7 @@ import { HttpService } from '../http/http.service';
   providedIn: 'root'
 })
 export class CartService {
-  public cartItemList : any[]=[]
+  public cartItemList : any[]=[];
 
   // behavioursubject emmit data and subscribe data. observable. need to iniialise
   public productList = new BehaviorSubject<any>([]);
@@ -18,6 +18,7 @@ export class CartService {
 
   // send data 
   getProducts(){
+    // this.http.getCart
     return this.productList.asObservable();
   }
 
@@ -30,14 +31,17 @@ export class CartService {
 
 // add to cart and emmit cartItemList and total price
   async addtoCart (_id : any){
-    await this.http.getSingleProduct(_id)
-    .subscribe(async (product) => {
-      this.cartItemList.push(product);
-      await this.http.addcart(product);
-      this.productList.next(product);
-      this.getTotalPrice();
+    await this.http.addcart(_id);
+
+
+
+    // await this.http.getSingleProduct(_id)
+    // .subscribe(async (product) => {
+      // this.cartItemList.push(product);
+      // this.productList.next(product);
+      // this.getTotalPrice();
       // console.log(this.cartItemList)
-  })
+  // })
 }
 
 

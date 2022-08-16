@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const genPassword = require('../lib/passwordUtils').genPassword;
 const validPassword = require('../lib/passwordUtils').validPassword;
 const user = require("../model/UserModel");
+const cart = require("../model/Cart");
 const isAuth= require("./authMiddleware").isAuth;
 
 
@@ -32,11 +33,12 @@ router.post('/login', (req, res, next) => {
             // assigining admin boolen
             let isadmin = user.admin;
             let userID=user._id;
+            let user_name=user.name;
             // fayload for jwt
             let payload = {subject:userData.email+userData.password}
             // token creation useing sign function
             let token = jwt.sign(payload,'secretKey')
-            res.status(200).send({token,isadmin,userID});
+            res.status(200).send({token,isadmin,userID,user_name});
         }
     })
 
@@ -60,41 +62,32 @@ router.post('/register', (req, res, next) => {
         hash: hash,
         salt: salt,
         admin:false
-    });
+    })
 
     newUser.save();
 });
+
+// Cart
+
+// router.post("/cart",(req,res,next)=>{
+//     let cartData = req.cart;
+//     cart.findOne({user_id:cartData.userID})
+//     .then((data)=>{
+//         id(!data){
+//             let newItem = new cart({
+//                 user_id:cartData.userID,
+//                 product_id:[]
+//             })
+//         }
+//     })
+    
+// })
 
 
 /**
 * -------------- GET ROUTES ----------------
 */
 
-router.get('/home', (req, res, next) => {
-    res.send('<h1>Home</h1><p>Please <a href="/register">register</a></p>');
-});
-
-
-// isAuth check if a user is logged in
-router.get('/protected-route',isAuth, (req, res, next) => {
-     res.send("protected")
-
-});
-// admin check 
-router.get('/admin',(req, res, next) => {
-    res.send("admin !!!!!!!!!!!!!!")
-
-});
-
-// Visiting this route logs the user out
-router.get('/logout', (req, res, next) => {
-    req.logout(function (err) {
-        if (err) { return next(err); }
-        console.log("logged out!");
-    });
-
-
-});
 
 router.get('/login-success', isAuth,(req, res, next) => {
     res.header("Access-Control-Allow-Orgin", "*");
