@@ -1,0 +1,44 @@
+<div class="main">
+  <br><h1>Contact Us</h1>
+<div class="container">
+<div class="row">
+<div class="column">
+  
+  <p>Need to get in touch with us?
+   Fill out the form with your inquiry.We look forward to hear from you!</p>
+</div>
+   <div class="column">
+      
+         <div class="row">
+           <div class="col-md-6 offset-md-3">
+             <form  (ngSubmit)="onSubmit(FormData.value)">
+   
+               <!-- Name -->
+               <div class="form-group">
+                 <label for="fullname">Name*</label>
+                 <input type="text" class="form-control" name="Fullname" placeholder="Full Name" formControlName="Fullname" />
+               </div>
+   
+               <!-- Email -->
+               <div class="form-group">
+                   <label for="Email">Email*</label>
+                   <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Enter email" formControlName="Email" />
+                   <br>
+                   <!-- <small id="emailHelp" class="form-text text-muted"
+                     >We'll never share your email with anyone else.</small> -->
+                 </div>
+   
+               <!-- Message -->
+               <div class="form-group">
+                 <label for="comment">What can we help you with?</label>
+                 <textarea class="form-control"formControlName="Comment"name="Comment"> </textarea>
+               </div>
+   
+               <!-- Send -->
+               <button type="submit" class="btn btn-primary" [disabled]="!FormData.valid">Submit</button>
+             </form>
+           </div>
+         </div>
+       </div>
+     </div>
+    </div>

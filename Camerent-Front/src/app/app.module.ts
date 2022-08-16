@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 
 // Angular modules
-import { FormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatDividerModule } from '@angular/material/divider';
@@ -24,7 +25,7 @@ import { TokenInterceptorService } from './Services/token/token-interceptor.serv
     AppComponent,
   ],
   imports: [
-    ModulesModule,
+    ModulesModule
   ],
   //services
   providers: [AuthService, {
