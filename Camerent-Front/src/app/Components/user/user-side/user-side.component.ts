@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Services/Auth/auth.service';
 
 @Component({
   selector: 'app-user-side',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserSideComponent implements OnInit {
  
-  constructor() {}
+  constructor(public _auth:AuthService) {}
   ngOnInit(): void {}
 
 }

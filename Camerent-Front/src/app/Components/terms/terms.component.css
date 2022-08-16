@@ -1,0 +1,21 @@
+.main{
+    min-height: 100vh;
+    
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#content{
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;  
+}
+.paddingTB60 {padding:80px;}
+.about-title h3 {color: white; font-size:20px;margin-bottom:24px;margin-left: 250px;}
+.about-title li {color: white;list-style-type: decimal;line-height: 2.1; text-align: justify;font-size:15px;margin-left: 250px;margin-right: 250px;font-family:'Roboto', sans-serif;}
+.about-paddingB {padding-bottom: 12px;}

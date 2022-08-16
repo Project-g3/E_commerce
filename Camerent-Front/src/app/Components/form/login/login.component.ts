@@ -26,22 +26,26 @@ export class LoginComponent implements OnInit {
     .subscribe((res)=>{
       // token stoting
       localStorage.setItem('token',res.token);
-      localStorage.setItem('admin',res.isadmin);
       localStorage.setItem('userID',res.userID);
+
+      if (res.isadmin) {
+        localStorage.setItem('admin', res.isadmin);
+        this.router.navigate(['admin-dashboard'])
+      } else {
+        this.router.navigate(['/home'])
+      }
       // simple timeout for a delay
       setTimeout(() => {
-        setTimeout(() => {
-          this.router.navigate(['/home'])
-          // reseting form
-          this.credentials= {
-            email: '',
-            password: ''
-          }
-        }, 1500);
+
+        // reseting form
+        this.credentials = {
+          email: '',
+          password: ''
+        }
         // closing modal
         this.modal.toggleModal('auth')
 
-      }, 1000);
+      }, 200);
     
     })
   }
