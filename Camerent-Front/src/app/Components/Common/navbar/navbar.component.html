@@ -47,9 +47,9 @@
             <li class="nav-item  pr-1" >
               <a class="nav-link" routerLink="about">About</a>
             </li>
-            <!-- Contact -->
+            <!-- User-->
             <li class="nav-item  pr-1" >
-              <a class="nav-link" routerLink="contactus">ContactUs</a>
+              <a class="nav-link" *ngIf="_auth.loggedIn()" routerLink="user">Dashboard</a>
             </li>
             <!-- login -->
             <li class="nav-item  pr-1" >

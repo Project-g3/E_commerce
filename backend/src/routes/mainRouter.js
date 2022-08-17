@@ -4,6 +4,9 @@ const jwt = require('jsonwebtoken');
 const genPassword = require('../lib/passwordUtils').genPassword;
 const validPassword = require('../lib/passwordUtils').validPassword;
 const user = require("../model/UserModel");
+const cart = require("../model/Cart");
+const products = require("../model/products");
+const { isValidFormat } = require("@firebase/util");
 const isAuth= require("./authMiddleware").isAuth;
 
 
@@ -32,11 +35,12 @@ router.post('/login', (req, res, next) => {
             // assigining admin boolen
             let isadmin = user.admin;
             let userID=user._id;
+            let user_name=user.name;
             // fayload for jwt
             let payload = {subject:userData.email+userData.password}
             // token creation useing sign function
             let token = jwt.sign(payload,'secretKey')
-            res.status(200).send({token,isadmin,userID});
+            res.status(200).send({token,isadmin,userID,user_name});
         }
     })
 
@@ -60,41 +64,74 @@ router.post('/register', (req, res, next) => {
         hash: hash,
         salt: salt,
         admin:false
-    });
+    })
 
     newUser.save();
 });
+
+
+
+// Cart
+
+router.post("/cart",(req,res,next)=>{
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    let cartData = req.body.cart;
+
+    console.log(cartData);
+    cart.findOne({user_id:cartData.userID})
+    .then((data)=>{
+        if(!data){
+            let newItem = new cart({
+                user_id:cartData.userID,
+                product:[cartData.pID]
+            })
+            newItem.save();
+        }else{
+            cart.updateOne({user_id:cartData.userID},
+            {
+                $push:{product:cartData.pID}
+            })
+        }
+    })
+    
+})
+
+// Cartdata when initialising
+router.get("/cart/:id", (req, res, next) => {
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    let cdata = [];
+    cart.find({ user_id: req.params.id })
+    .then((res)=>{
+        let [data] = res;
+        for(let i=0;i<data.product.length;i++){
+            products.findOne({_id:data.product[i]})
+            .then(async (res)=>{
+               await cdata.push(res);
+            })
+        }
+        console.log(cdata)
+    })
+
+})
+
+// cart delete
+router.post("/cart",(req,res)=>{
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    cart.updateOne({user_id:req.body.userID},
+        {
+            $pull: { product: [req.body.index] }
+        })
+   
+})
 
 
 /**
 * -------------- GET ROUTES ----------------
 */
 
-router.get('/home', (req, res, next) => {
-    res.send('<h1>Home</h1><p>Please <a href="/register">register</a></p>');
-});
-
-
-// isAuth check if a user is logged in
-router.get('/protected-route',isAuth, (req, res, next) => {
-     res.send("protected")
-
-});
-// admin check 
-router.get('/admin',(req, res, next) => {
-    res.send("admin !!!!!!!!!!!!!!")
-
-});
-
-// Visiting this route logs the user out
-router.get('/logout', (req, res, next) => {
-    req.logout(function (err) {
-        if (err) { return next(err); }
-        console.log("logged out!");
-    });
-
-
-});
 
 router.get('/login-success', isAuth,(req, res, next) => {
     res.header("Access-Control-Allow-Orgin", "*");

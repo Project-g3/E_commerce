@@ -28,7 +28,6 @@ export class AuthService {
 // checking admin setted in the localStorage is true/false
   adminIn(){
       if (!!localStorage.getItem('token') && localStorage.getItem('admin') === 'true') {
-        this._router.navigate['admin']
         return true
       } else {
         return false
