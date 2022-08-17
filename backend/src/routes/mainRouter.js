@@ -107,8 +107,7 @@ router.get("/cart/:id", (req, res, next) => {
             products.findOne({_id:data.product[i]})
             .then(async (res)=>{
                await cdata.push(res);
-                console.log(cdata)
-                
+                console.log(cdata)   
             })
         }
     })
