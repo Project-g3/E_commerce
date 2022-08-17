@@ -10,9 +10,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* Setting up universal colors  */
 :root {
     --body-color: #f1f1f1;
-    --container-color: #1F4690;
-    --component-color: #184aa8;
-    --nav-color : #102242;
+    --container-color: #950101;
+    --component-color: #3c3c42;
+    --nav-color : #500000;
     --accent-color : #9d1f16;
     --darkText : #343434;
 }

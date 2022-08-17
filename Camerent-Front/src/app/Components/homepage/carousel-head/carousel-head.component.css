@@ -1,6 +1,7 @@
 /* .bg{background: black !important;} */
 *{
 	color:black;
+	font-family: 'Poppins', sans-serif!important;
 }
 .carousel-caption {
     top: 50%;
@@ -18,12 +19,16 @@
 	font-family: 'Oswald', sans-serif;
 }
 .carousel-action .btn-primary {
-	border-color: #000;
-	background: none;
-	color: #000;
+	border-color: var(--accent-color);
+	background-color: var(--accent-color);
+	border: 3px solid var(--accent-color);
+	color: white;
+	border-radius: 10px;
+	letter-spacing: 4px;
 }
 .carousel-action .btn-primary:hover {
-	background: #000;
+	background: var(--accent-color);
+	transform: scale(1.1);
 	color: #fff;
 }
 .carousel-indicators li {

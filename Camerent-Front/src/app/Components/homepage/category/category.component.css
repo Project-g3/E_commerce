@@ -22,7 +22,7 @@ margin-top: 100px;
 }
 .card {
     border-radius: 7px !important;
-    height: 290px;
+    /* height: 290px; */
     background-color: white!important;
 }
 h4,p{

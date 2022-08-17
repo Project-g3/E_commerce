@@ -1,23 +1,23 @@
 export const footerData = [
         {
           name:'Home',
-          link:''
+          link:'/'
         }, 
         {
-          name:'Camera',
-          link:''
+          name:'Products',
+          link:'/products'
         },
         {
-          name:'Accessories',
+          name:'Terms & Condition',
+          link:'/terms'
+        },
+        {
+          name:'Contact Us',
           link:''
         },
         {
           name:'About',
-          link:''
-        },
-        {
-          name:'ContactUs',
-          link:''
+          link:'/about'
         }
       ]
 

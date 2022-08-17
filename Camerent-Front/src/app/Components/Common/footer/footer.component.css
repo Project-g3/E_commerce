@@ -1,6 +1,7 @@
+
 .footer-container{
     min-height: 320px;
-    background:#212120 !important;
+    background:#3c3c42 !important;
 }
 
 .navlist{
@@ -14,8 +15,12 @@ a:hover{
 h3{
     font-size: 15px;
     color:aliceblue;
+    font-family: 'Poppins', sans-serif;
 }
 p,a,ul,li{
     color:white;
     font-family: 'Poppins', sans-serif;
+}
+.copyright{
+    background-color: var(--container-color);
 }
