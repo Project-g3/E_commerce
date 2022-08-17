@@ -32,6 +32,7 @@ import { TokenInterceptorService } from './Services/token/token-interceptor.serv
   ],
   imports: [
     ModulesModule,
+    FormsModule,
     provideFirebaseApp(()=>initializeApp(environment.firebase)),
     provideStorage(()=>getStorage())
   ],
