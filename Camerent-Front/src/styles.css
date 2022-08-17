@@ -10,9 +10,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /* Setting up universal colors  */
 :root {
     --body-color: #f1f1f1;
-    --container-color: #1F4690;
-    --component-color: #184aa8;
-    --nav-color : #102242;
+    --container-color: #950101;
+    --component-color: #3c3c42;
+    --nav-color : #500000;
+    --accent-color : #9d1f16;
+    --darkText : #343434;
 }
 
 .body-color{
@@ -27,6 +29,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .nav-color{
     background-color: var(--nav-color);
 }
+.accent-color{
+    background-color: var(--accent-color);
+}
+
 
 p,h1,h2,h3,h4,h5,h6,a ,ul,li{
     color:white;

@@ -1,5 +1,6 @@
 *{
     color: rgb(22, 22, 22);
+    font-family: 'Poppins', sans-serif;
 }
 
 .title{
@@ -9,7 +10,12 @@
 .shortDescText{
     letter-spacing: 2.8px;
 }
-button{
+.shedulebtn{
     border-radius: 48px;
     padding: 12px 36px;
 }
+input[type=date]{
+    background-color: grey;
+    padding: 3px 10px;
+    border-radius: 8px;
+} 

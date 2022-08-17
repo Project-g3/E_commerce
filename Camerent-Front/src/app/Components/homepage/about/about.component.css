@@ -1,18 +1,23 @@
 
+*{
+    color:var(--darkText);
+    font-family: 'Poppins', sans-serif;
+    
 
+}
 .card{
     cursor: pointer;
-    background:#212120 !important;
+    background:var(--accent-color) !important;
 }
 h2 {
-    color: white;
+    /* color: white; */
 	font-size: 26px;
 	font-weight: 300;
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
 	margin: 30px 0 50px;
-    font-family: "Times New Roman", Times, serif;
+    /* font-family: "Times New Roman", Times, serif; */
 }
 
 .card.hover, .card:hover{

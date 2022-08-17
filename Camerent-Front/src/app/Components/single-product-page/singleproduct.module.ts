@@ -4,6 +4,7 @@ import { ProductImgCarouselComponent } from './product-img-carousel/product-img-
 import { ProductRightTextComponent } from './product-right-text/product-right-text.component';
 import { SingleProductPageComponent } from './single-product-page.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { MatDividerModule } from '@angular/material/divider';
   ],
   imports: [
     CommonModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule
   ],
   exports:[
     SingleProductPageComponent
