@@ -14,7 +14,14 @@ export class ProductRightTextComponent implements OnInit {
   @Input()  pShortDesc : any;
   @Input()  pPrice : any;
 
-  
+  startDate : any;
+  endDate : any;
+
+
+  abc(){
+    console.log("start date : "+this.startDate);
+    console.log("end date : "+this.endDate);
+  }
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
