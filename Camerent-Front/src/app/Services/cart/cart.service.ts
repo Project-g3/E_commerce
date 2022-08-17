@@ -17,8 +17,11 @@ export class CartService {
   constructor(private http:HttpService) { }
 
   // send data 
-  getProducts(){
-    // this.http.getCart
+  getProducts(id:any){
+    this.http.getCartData(id)
+    .subscribe((res:any)=>{
+      this.productList.next(res.product);
+    })
     return this.productList.asObservable();
   }
 
@@ -31,12 +34,11 @@ export class CartService {
 
 // add to cart and emmit cartItemList and total price
   async addtoCart (_id : any){
-    await this.http.addcart(_id);
-
-
-
     // await this.http.getSingleProduct(_id)
-    // .subscribe(async (product) => {
+    // .subscribe(async (res) => {
+    //   let [product]:any = res
+      await this.http.addcart(_id);
+      
       // this.cartItemList.push(product);
       // this.productList.next(product);
       // this.getTotalPrice();
@@ -56,11 +58,7 @@ export class CartService {
 
   // remove
   removeCartItem(product: any){
-    this.cartItemList.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.cartItemList.splice(index,1);
-      }
-    })
+    
     // update live no. cart item no.
     this.productList.next(this.cartItemList);
   }

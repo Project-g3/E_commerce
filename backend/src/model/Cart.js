@@ -11,7 +11,7 @@ const schema = mongoose.Schema;
 
 const CartItems = new schema({
     user_id: String,
-    product_id:[String],
+    product:[String],
     start_date: String,
     end_date: String,
     payment_status: Boolean,
