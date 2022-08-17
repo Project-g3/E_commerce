@@ -6,7 +6,6 @@ const validPassword = require('../lib/passwordUtils').validPassword;
 const user = require("../model/UserModel");
 const cart = require("../model/Cart");
 const products = require("../model/products");
-const { isValidFormat } = require("@firebase/util");
 const isAuth= require("./authMiddleware").isAuth;
 
 
@@ -72,7 +71,6 @@ router.post('/register', (req, res, next) => {
 
 
 // Cart
-
 router.post("/cart",(req,res,next)=>{
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
@@ -80,7 +78,7 @@ router.post("/cart",(req,res,next)=>{
 
     console.log(cartData);
     cart.findOne({user_id:cartData.userID})
-    .then((data)=>{
+    .then(async (data)=>{
         if(!data){
             let newItem = new cart({
                 user_id:cartData.userID,
@@ -88,7 +86,7 @@ router.post("/cart",(req,res,next)=>{
             })
             newItem.save();
         }else{
-            cart.updateOne({user_id:cartData.userID},
+            await cart.findOneAndUpdate({user_id:cartData.userID},
             {
                 $push:{product:cartData.pID}
             })
@@ -109,9 +107,10 @@ router.get("/cart/:id", (req, res, next) => {
             products.findOne({_id:data.product[i]})
             .then(async (res)=>{
                await cdata.push(res);
+                console.log(cdata)
+                
             })
         }
-        console.log(cdata)
     })
 
 })
