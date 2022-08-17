@@ -1,16 +1,18 @@
-body {
-	background: #e2eaef;
-	font-family: "Open Sans", sans-serif;
+.container-xl {
+	
+	font-family: 'Poppins', sans-serif!important;
 }
+
 h2 {
-	color: white;
+	color:var(--darkText);
 	font-size: 26px;
 	font-weight: 300;
 	text-align: center;
 	text-transform: uppercase;
 	position: relative;
 	margin: 30px 0 60px;
-	font-family: "Times New Roman", Times, serif;
+	font-family: 'Poppins', sans-serif!important;
+	letter-spacing: 4px;
 }
 h2::after {
 	content: "";
@@ -19,7 +21,7 @@ h2::after {
 	margin: 0 auto;
 	height: 4px;
 	border-radius: 1px;
-	background: white;
+	background:var(--darkText);
 	left: 0;
 	right: 0;
 	bottom: -20px;
@@ -36,7 +38,7 @@ h2::after {
 }
 .carousel .thumb-wrapper {
 	padding: 25px 15px;
-	background: #212120;;
+	background: white;;
 	border-radius: 6px;
 	text-align: center;
 	position: relative;
@@ -60,7 +62,7 @@ h2::after {
 }
 .carousel .item h4 {
 	font-size: 18px;
-	color: #fff;
+	color: black;
 }
 p{color: gray;}
 .carousel .item h4, .carousel .item p, .carousel .item ul {
@@ -158,4 +160,26 @@ p{color: gray;}
 .star-rating i {
 	font-size: 14px;
 	color: #ffc000;
+}
+.carousel-indicators li{
+	background-color: var(--accent-color);
+}
+.carousel-indicators li.active{
+	background-color: var(--accent-color);
+}
+
+.carousel-control-prev, .carousel-control-next{
+	background-color: var(--accent-color);
+}
+.carousel-control-prev:hover, .carousel-control-next:hover{
+	background-color: var(--accent-color);
+	transform: scale(1.1);
+}
+.carousel .thumb-content .btn{
+	background-color: var(--accent-color);
+}
+.carousel .thumb-content .btn:hover{
+	background-color: var(--accent-color);
+	transform: scale(1.1);
+	
 }
