@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 var schema = mongoose.Schema;
 
-mongoose.connect(process.env.DB_STRING);
+mongoose.connect("mongodb+srv://group3:group3@cluster0.hyotslj.mongodb.net/?retryWrites=true&w=majority");
 
 
 const products = new schema({
