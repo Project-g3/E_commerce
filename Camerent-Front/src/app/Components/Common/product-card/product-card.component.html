@@ -1,5 +1,5 @@
 <div class="card my-2" style="width: 100%" >
-    <span class="wish-icon"><i class="fa fa-heart-o" (click)="addToWhislist()"></i></span>
+  <span class="wish-icon"><i class="fa fa-heart-o" #wish (click)="towish(wish)"></i></span>
     <div (click)='cli()'>
       <img class="card-img-top" src="{{item.imagesUrl[0]}}" width="100%"
         style="object-fit:scale-down;padding:5px;height:180px;" alt="Card image cap">

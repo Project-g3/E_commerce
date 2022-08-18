@@ -43,7 +43,7 @@
     
                                 <div class="col-sm-3" *ngIf="i<4" >
                                     <div class="thumb-wrapper">
-                                        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                                        <span class="wish-icon"><i class="fa fa-heart-o" #wish (click)="towish(wish)"></i></span>
                                         <div class="img-box">
                                             <img src="{{products.imagesUrl}}" class="img-fluid" alt="image">									
                                         </div>
@@ -73,7 +73,7 @@
     
                                 <div class="col-sm-3" *ngIf="i>3&&i<8" >
                                     <div class="thumb-wrapper">
-                                        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                                        <span class="wish-icon"><i class="fa fa-heart-o" #wish (click)="towish(wish)"></i></span>
                                         <div class="img-box">
                                             <img src="{{products.imagesUrl}}" class="img-fluid" alt="image">									
                                         </div>
@@ -102,7 +102,7 @@
     
                                 <div class="col-sm-3" *ngIf="i>7&&i<12" >
                                     <div class="thumb-wrapper">
-                                        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                                        <span class="wish-icon"><i class="fa fa-heart-o" #wish (click)="towish(wish)"></i></span>
                                         <div class="img-box">
                                             <img src="{{products.imagesUrl}}" class="img-fluid" alt="image">									
                                         </div>

@@ -13,10 +13,25 @@ export class SingleProductPageComponent implements OnInit {
   SingleProdList:any;
   allproducts:any;
 
+  wishStatus = false;
+
   // For right section component
   pname : String ='';
   pShortDesc : String = '';
   pPrice : any;
+
+  // adding to wishlist
+  towish(target:any){
+    
+    
+    if(this.wishStatus){
+      target.style = 'color:grey';
+      this.wishStatus = false;
+    }else{
+      target.style = 'color:red';
+      this.wishStatus = true; 
+    }
+  }
 
   goToPro(id:any){
     // console.log(id);
