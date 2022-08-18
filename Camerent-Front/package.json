@@ -27,7 +27,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "fontawesome-free": "^1.0.4",
-    "js-joda": "^1.11.0",
     "ngx-mask": "^14.0.3",
     "ngx-owl-carousel-o": "^14.0.1",
     "rxjs": "~7.5.0",
