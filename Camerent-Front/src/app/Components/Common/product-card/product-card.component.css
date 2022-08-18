@@ -12,3 +12,25 @@ p{
 .card{
     height: 350px;
 }
+.card-title{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.star-rating i {
+    font-size: 14px;
+    color: #ffc000;
+}
+.price{
+    color:grey;
+    font-family: 'Poppins', sans-serif;
+}
+.wish-icon {
+	margin-left: auto;
+    margin-right: 8px;
+    margin-top: 4px;
+	cursor: pointer;
+	font-size: 16px;
+	color: #abb0b8;
+    
+}

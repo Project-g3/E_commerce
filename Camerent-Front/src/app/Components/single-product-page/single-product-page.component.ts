@@ -11,6 +11,7 @@ export class SingleProductPageComponent implements OnInit {
 
   pId : any;
   SingleProdList:any;
+  allproducts:any;
 
   // For right section component
   pname : String ='';
@@ -22,6 +23,10 @@ export class SingleProductPageComponent implements OnInit {
   constructor(private router:ActivatedRoute,private httpObj:HttpService) { }
 
   ngOnInit(): void {
+    // accessing all product from database
+    this.httpObj.getProducts().subscribe((result)=>{
+      this.allproducts = JSON.parse(JSON.stringify(result));
+    })
 
     // Accessing Product Id from URL using query parameter
     this.router.queryParams

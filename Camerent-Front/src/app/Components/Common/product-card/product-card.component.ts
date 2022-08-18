@@ -10,6 +10,9 @@ export class ProductCardComponent implements OnInit {
   cli(){
     this.router.navigate(['single-product'],{queryParams:{pID:this.item._id}});
   }
+  addToWhislist(){
+    console.log('whished');
+  }
   item :any;
 
   @Input() data = new Array;

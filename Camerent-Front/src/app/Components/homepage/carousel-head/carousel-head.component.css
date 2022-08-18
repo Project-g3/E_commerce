@@ -4,8 +4,12 @@
 	font-family: 'Poppins', sans-serif!important;
 }
 .carousel-caption {
-    top: 50%;
+    top: 34%;
     
+}
+.welcomeBanner{
+	font-size: xx-large;
+	letter-spacing: 4px;
 }
 .carousel-action {
 	padding: 10px 0 30px;
