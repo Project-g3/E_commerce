@@ -1,73 +1,38 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { HttpService } from '../http/http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  public cartItemList : any[]=[];
-
-  // behavioursubject emmit data and subscribe data. observable. need to iniialise
-  public productList = new BehaviorSubject<any>([]);
-
-  public search = new BehaviorSubject<string>("");
 
 
-  constructor(private http:HttpService) { }
+  constructor(private http:HttpClient) { }
 
-  // send data 
-  getProducts(id:any){
-    this.http.getCartData(id)
-    .subscribe((res:any)=>{
-      this.productList.next(res.product);
-    })
-    return this.productList.asObservable();
+  // add to cart
+  addcart(pID: any) {
+    let cart = {
+      "userID": localStorage.getItem('userID'),
+      "pID": pID,
+    }
+    // to be updated in database
+    this.http.post('http://localhost:3210/cart', { 'cart': cart })
+      .subscribe()
   }
 
-  // get data and emit data by next()
-  setProduct(product : any){
-    this.cartItemList.push(...product);
-    this.productList.next(product);
+  // get cart data
+  getCartData(id: any) {
+    return this.http.get(`http://localhost:3210/cart/${id}`)
   }
 
-
-// add to cart and emmit cartItemList and total price
-  async addtoCart (_id : any){
-    // await this.http.getSingleProduct(_id)
-    // .subscribe(async (res) => {
-    //   let [product]:any = res
-      await this.http.addcart(_id);
-      
-      // this.cartItemList.push(product);
-      // this.productList.next(product);
-      // this.getTotalPrice();
-      // console.log(this.cartItemList)
-  // })
-}
-
-
-//  total price 
-  getTotalPrice() : number{
-    let grandTotal = 0;
-    this.cartItemList.map((a:any)=>{
-      grandTotal += a.total;
-    })
-    return grandTotal;
+  // remove single item
+  removeCart(pId: any, userID: any) {
+    return this.http.post(`http://localhost:3210/cart/delete`, { 'pId': pId, 'userID': userID })
+      .subscribe()
   }
-
-  // remove
-  removeCartItem(product: any){
-    
-    // update live no. cart item no.
-    this.productList.next(this.cartItemList);
-  }
-
-  // remove all
-  removeAllCart(){
-    this.cartItemList = []
-    
-    // update live no. cart item no.
-    this.productList.next(this.cartItemList);
+  // remove all items
+  removeAllCart(userID: any) {
+    this.http.post(`http://localhost:3210/cart/deleteall`, { 'userID': userID })
+      .subscribe()
   }
 }

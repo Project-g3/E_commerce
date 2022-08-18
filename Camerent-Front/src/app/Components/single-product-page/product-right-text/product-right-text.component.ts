@@ -21,17 +21,12 @@ export class ProductRightTextComponent implements OnInit {
   abc(){
     console.log("start date : "+this.startDate);
     console.log("end date : "+this.endDate);
-    this.cartService.addtoCart(this.pId);
+    this.cartService.addcart(this.pId);
   }
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     
-  }
-
-   addtocart(){
-    // console.log("product added")
-    // this.cartService.addtoCart(item);
   }
 
 }
