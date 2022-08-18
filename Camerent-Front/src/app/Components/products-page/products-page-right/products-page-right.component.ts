@@ -18,6 +18,10 @@ export class ProductsPageRightComponent implements OnInit {
   highToLow(){
     this.products = this.products.sort((a,b)=> b.price - a.price)
   }
+  // Filter by brand
+  filterByBrand(){
+    alert('brand filter');
+  }
 
   constructor(private httpObj : HttpService) { }
 

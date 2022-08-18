@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterBrandComponent implements OnInit {
   brands = ['Canon','Sony','Nikon','Fujifilm','Panasonic','PENTAX'];
+
+  checks = new Array;
+
+  ch(item:any){
+    this.checks.push(item);
+    console.log(this.checks);
+  }
   constructor() { }
 
   ngOnInit(): void {
