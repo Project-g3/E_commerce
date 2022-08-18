@@ -21,7 +21,7 @@ export class ProductRightTextComponent implements OnInit {
   abc(){
     console.log("start date : "+this.startDate);
     console.log("end date : "+this.endDate);
-    this.cartService.addcart(this.pId);
+    this.cartService.addcart(this.pId,this.pPrice);
   }
   constructor(private cartService: CartService) { }
 

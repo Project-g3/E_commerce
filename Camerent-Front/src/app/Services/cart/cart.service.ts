@@ -10,10 +10,11 @@ export class CartService {
   constructor(private http:HttpClient) { }
 
   // add to cart
-  addcart(pID: any) {
+  addcart(pID: any,pPrice:any) {
     let cart = {
       "userID": localStorage.getItem('userID'),
       "pID": pID,
+      "tPrice":pPrice
     }
     // to be updated in database
     this.http.post('http://localhost:3210/cart', { 'cart': cart })

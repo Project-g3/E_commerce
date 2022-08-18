@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/Services/cart/cart.service';
-import { HttpService } from 'src/app/Services/http/http.service';
-import { Products } from '../admin-page/admin-products/admin-products.model';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +8,7 @@ import { Products } from '../admin-page/admin-products/admin-products.model';
 })
 export class CartComponent implements OnInit {
   public products: any = [];
-  public grandTotal !: number;
+  public tPrice !: number;
 
   constructor(private cartService : CartService,) { }
 
@@ -18,7 +16,10 @@ export class CartComponent implements OnInit {
     // get data on init
     this.cartService.getCartData(localStorage.getItem("userID"))
       .subscribe((res: any) => {
-        this.products = res;
+        // all data
+        this.products = res.data;
+        // total price
+        this.tPrice = res.tPrice;
       }) 
   }
   
