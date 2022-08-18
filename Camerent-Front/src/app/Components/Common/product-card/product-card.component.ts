@@ -7,8 +7,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
+
+  wishStatus = false;
+
   cli(){
     this.router.navigate(['single-product'],{queryParams:{pID:this.item._id}});
+  }
+  towish(target:any){
+    
+    if(this.wishStatus){
+      target.style = 'color:grey';
+      this.wishStatus = false;
+    }else{
+      target.style = 'color:red';
+      this.wishStatus = true; 
+    }
   }
   item :any;
 

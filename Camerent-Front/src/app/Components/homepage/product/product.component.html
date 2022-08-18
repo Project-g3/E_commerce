@@ -17,7 +17,7 @@
 
 							<div class="col-sm-3" *ngIf="i<4" >
 								<div class="thumb-wrapper">
-									<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+									<span class="wish-icon"><i class="fa fa-heart-o" #wish (click)="towish(wish)"></i></span>
 									<div class="img-box">
 										<img src="{{products.imagesUrl}}" class="img-fluid" alt="image">									
 									</div>
@@ -33,7 +33,7 @@
 											</ul>
 										</div>
 										<p class="item-price"><b>{{products.price|currency:'INR':'symbol':'1.0-0'}}/day</b></p>
-										<a href="#" class="btn btn-primary">Add to Cart</a>
+										<a (click)="goToPro(products._id)" class="btn btn-primary">Rent NOW</a>
 									</div>						
 								</div>
 							</div>
@@ -47,7 +47,7 @@
 
 							<div class="col-sm-3" *ngIf="i>3&&i<8" >
 								<div class="thumb-wrapper">
-									<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+									<span class="wish-icon"><i class="fa fa-heart-o" #wish (click)="towish(wish)"></i></span>
 									<div class="img-box">
 										<img src="{{products.imagesUrl}}" class="img-fluid" alt="image">									
 									</div>
@@ -63,7 +63,7 @@
 											</ul>
 										</div>
 										<p class="item-price"><b>{{products.price|currency:'INR':'symbol':'1.0-0'}}/day</b></p>
-										<a href="#" class="btn btn-primary">Add to Cart</a>
+										<a (click)="goToPro(products._id)" class="btn btn-primary">Rent NOW</a>
 									</div>						
 								</div>
 							</div>
@@ -74,9 +74,9 @@
 					<div class="row">
 						<ng-template ngFor let-products [ngForOf]="homeProduct" let-i="index">
 
-							<div class="col-sm-3" *ngIf="i>8&&i<12" >
+							<div class="col-sm-3" *ngIf="i>7&&i<12" >
 								<div class="thumb-wrapper">
-									<span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+									<span class="wish-icon"><i class="fa fa-heart-o" #wish (click)="towish(wish)"></i></span>
 									<div class="img-box">
 										<img src="{{products.imagesUrl}}" class="img-fluid" alt="image">									
 									</div>
@@ -92,7 +92,7 @@
 											</ul>
 										</div>
 										<p class="item-price"><b>{{products.price|currency:'INR':'symbol':'1.0-0'}}/day</b></p>
-										<a href="#" class="btn btn-primary">Add to Cart</a>
+										<a (click)="goToPro(products._id)" class="btn btn-primary">Rent NOW</a>
 									</div>						
 								</div>
 							</div>

@@ -183,3 +183,8 @@ p{color: gray;}
 	transform: scale(1.1);
 	
 }
+.carousel h4{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
