@@ -70,25 +70,31 @@ router.post('/register', (req, res, next) => {
 
 
 
-// Cart
+//add to Cart
 router.post("/cart",(req,res,next)=>{
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
     let cartData = req.body.cart;
-
-    console.log(cartData);
+    
     cart.findOne({user_id:cartData.userID})
     .then(async (data)=>{
         if(!data){
             let newItem = new cart({
                 user_id:cartData.userID,
-                product:[cartData.pID]
+                product:[cartData.pID],
+                tPrice: cartData.tPrice
             })
             newItem.save();
         }else{
+            // tPrice from database + incoming tPrice
+            let tPrice = data.tPrice + cartData.tPrice;
             await cart.findOneAndUpdate({user_id:cartData.userID},
             {
-                $push:{product:cartData.pID}
+                $push:{product:cartData.pID},
+                $set:{tPrice:tPrice}
+            },
+            {
+                multi:true
             })
         }
     })
@@ -106,6 +112,7 @@ router.get("/cart/:id",async(req, res, next) => {
     // checking user in cart collection
     await cart.find({ user_id: req.params.id })
     .then(async(response)=>{
+        let [obj] = response;
         // assigning object to data #destructing
         let [data]= response
         // assigning product array to data1
@@ -118,7 +125,7 @@ router.get("/cart/:id",async(req, res, next) => {
                     cdata.push(product)
                 })
         }))
-        res.send(cdata);
+        res.send({'data':cdata,'tPrice':obj.tPrice});
     })
 
 })
@@ -145,7 +152,14 @@ router.post('/cart/deleteall',(req,res)=>{
 
     cart.updateOne({user_id:userID},
     {
-        $set:{product:[]}
+        $set:{
+            product:[],
+            tprice:0
+        }
+
+    },
+    {
+        multi:true
     })
     .then()
 })
