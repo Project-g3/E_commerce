@@ -96,33 +96,58 @@ router.post("/cart",(req,res,next)=>{
 })
 
 // Cartdata when initialising
-router.get("/cart/:id", (req, res, next) => {
+router.get("/cart/:id",async(req, res, next) => {
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
-    let cdata = [];
-    cart.find({ user_id: req.params.id })
-    .then((response)=>{
-        let [data] = response;
-        for(let i=0;i<data.product.length;i++){
-            products.findOne({_id:data.product[i]})
-            .then(async (res)=>{
-               await cdata.push(res)
-                console.log(cdata);
-            })
-        }
+    // to hold final data
+    var cdata = [];
+    let data1 =[];
+    
+    // checking user in cart collection
+    await cart.find({ user_id: req.params.id })
+    .then(async(response)=>{
+        // assigning object to data #destructing
+        let [data]= response
+        // assigning product array to data1
+        data1 = data.product
+        // mapping data1 to get single product_id         
+        await Promise.all(data1.map((id) => {
+            return products.findOne({ _id: id })
+                .then(product => {
+                    // push product object to cdata[]
+                    cdata.push(product)
+                })
+        }))
+        res.send(cdata);
     })
 
 })
 
+
 // cart delete
-router.post("/cart",(req,res)=>{
+router.post("/cart/delete",(req,res)=>{
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
-    cart.updateOne({user_id:req.body.userID},
+    let { pId,userID } = req.body;
+    // user match
+    cart.updateOne({user_id:userID},
         {
-            $pull: { product: [req.body.index] }
+            $pull: {product:{$in:[`${pId}`]}}
         })
-   
+        .then()  //then returns the promise 
+})
+
+// cart delete all
+router.post('/cart/deleteall',(req,res)=>{
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    let userID = req.body.userID;
+
+    cart.updateOne({user_id:userID},
+    {
+        $set:{product:[]}
+    })
+    .then()
 })
 
 
