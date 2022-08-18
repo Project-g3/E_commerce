@@ -101,13 +101,13 @@ router.get("/cart/:id", (req, res, next) => {
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
     let cdata = [];
     cart.find({ user_id: req.params.id })
-    .then((res)=>{
-        let [data] = res;
+    .then((response)=>{
+        let [data] = response;
         for(let i=0;i<data.product.length;i++){
             products.findOne({_id:data.product[i]})
             .then(async (res)=>{
-               await cdata.push(res);
-                console.log(cdata)   
+               await cdata.push(res)
+                console.log(cdata);
             })
         }
     })
