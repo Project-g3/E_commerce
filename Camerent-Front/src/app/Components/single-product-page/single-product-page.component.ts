@@ -18,9 +18,34 @@ export class SingleProductPageComponent implements OnInit {
   pShortDesc : String = '';
   pPrice : any;
 
+  goToPro(id:any){
+    // console.log(id);
+    this.route.navigate(['single-product'],{queryParams:{pID:id}});
+
+    // Accessing Product Id from URL using query parameter
+    this.router.queryParams
+      .subscribe(params => {
+        this.pId = params; //saving it to a variable
+        this.pId = this.pId.pID;
+      })
+
+    // Accessing single product list from server
+    this.httpObj.getSingleProduct(this.pId)
+    .subscribe((result)=>{
+      this.SingleProdList = result;
+      this.SingleProdList = this.SingleProdList[0];
+
+      //Setting data to variables 
+      this.pname = this.SingleProdList.name;
+      this.pShortDesc = this.SingleProdList.shortDesc;
+      this.pPrice = this.SingleProdList.price;
+    });
+    
+  }
+
 
   
-  constructor(private router:ActivatedRoute,private httpObj:HttpService) { }
+  constructor(private router:ActivatedRoute,private httpObj:HttpService,private route:Router) { }
 
   ngOnInit(): void {
     // accessing all product from database
