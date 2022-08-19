@@ -1,5 +1,5 @@
 
-<app-top-filter></app-top-filter>
+<app-top-filter (lowToHigh)="lowToHigh()" (highToLow)="highToLow()" ></app-top-filter>
 <div class="container-fluid">
     <div class="row">
         <ng-container *ngFor="let i of products" >

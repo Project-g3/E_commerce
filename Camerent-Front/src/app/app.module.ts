@@ -22,6 +22,7 @@ import { ModulesModule } from './modules/modules.module';
 import { AuthService } from './Services/Auth/auth.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './Services/token/token-interceptor.service';
+import { SortbyPipe } from './Pipes/sortby.pipe';
 
 
 
@@ -29,6 +30,7 @@ import { TokenInterceptorService } from './Services/token/token-interceptor.serv
 @NgModule({
   declarations: [
     AppComponent,
+    SortbyPipe,
   ],
   imports: [
     ModulesModule,
