@@ -34,7 +34,7 @@
                 <label for="">Shedule a return date</label>
             </div>
             <div class="col">
-                <input type="date"  class="rounded"  [(ngModel)]="endDate"  min="{{startDate}}"  name="" id="" class="w-100">
+                <input type="date"  class="rounded" (change)="checkRent()" [(ngModel)]="endDate"  min="{{startDate}}"  name="" id="" class="w-100">
             </div>
           </div>
           <div class="row">
