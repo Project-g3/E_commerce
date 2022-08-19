@@ -19,11 +19,13 @@ export class ProductRightTextComponent implements OnInit {
   endDate : any;
   calculatedRent :any;
   minEndDate:any;
+  RentedDaysCount:any;
 
+  // Add to cart function
   abc(){
     console.log("start date : "+this.startDate);
     console.log("end date : "+this.endDate);
-    // this.cartService.addcart(this.pId,this.pPrice);
+    
     // checking if the input fields are empty or not
     if (this.startDate != undefined && this.endDate != undefined) {
       // checking the differnce
@@ -31,6 +33,9 @@ export class ProductRightTextComponent implements OnInit {
       this.calculatedRent = diff * this.pPrice;
       console.log('this will be the rent for the selected dates : ' + this.calculatedRent);
     }
+
+    // Adding to cart
+    this.cartService.addcart(this.pId,this.pPrice);
     
   }
 
@@ -61,7 +66,9 @@ export class ProductRightTextComponent implements OnInit {
     var Difference_In_Time = date2.getTime() - date1.getTime();
 
     // To calculate the no. of days between two dates
-    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+    let Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+    this.RentedDaysCount = Difference_In_Days+1;
+    
 
     //To display the final no. of days (result)
     return Difference_In_Days+1;
@@ -70,13 +77,15 @@ export class ProductRightTextComponent implements OnInit {
   checkRent(){
     let diff = this.dateDiff();
     this.calculatedRent = diff * this.pPrice;
-    console.log('this will be the rent for the selected dates : '+this.calculatedRent);
+    // console.log('this will be the rent for the selected dates : '+this.calculatedRent);
   }
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
   //calling the date function 
   this.toDay();
+  // Setting start date as today
+  this.startDate = this.todayDate;
     
   }
 
