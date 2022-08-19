@@ -70,25 +70,31 @@ router.post('/register', (req, res, next) => {
 
 
 
-// Cart
+//add to Cart
 router.post("/cart",(req,res,next)=>{
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
     let cartData = req.body.cart;
-
-    console.log(cartData);
+    
     cart.findOne({user_id:cartData.userID})
     .then(async (data)=>{
         if(!data){
             let newItem = new cart({
                 user_id:cartData.userID,
-                product:[cartData.pID]
+                product:[cartData.pID],
+                tPrice: cartData.tPrice
             })
             newItem.save();
         }else{
+            // tPrice from database + incoming tPrice
+            let tPrice = data.tPrice + cartData.tPrice;
             await cart.findOneAndUpdate({user_id:cartData.userID},
             {
-                $push:{product:cartData.pID}
+                $push:{product:cartData.pID},
+                $set:{tPrice:tPrice}
+            },
+            {
+                multi:true
             })
         }
     })
@@ -96,33 +102,79 @@ router.post("/cart",(req,res,next)=>{
 })
 
 // Cartdata when initialising
-router.get("/cart/:id", (req, res, next) => {
+router.get("/cart/:id",async(req, res, next) => {
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
-    let cdata = [];
-    cart.find({ user_id: req.params.id })
-    .then((res)=>{
-        let [data] = res;
-        for(let i=0;i<data.product.length;i++){
-            products.findOne({_id:data.product[i]})
-            .then(async (res)=>{
-               await cdata.push(res);
-                console.log(cdata)   
-            })
-        }
+    // to hold final data
+    var cdata = [];
+    let data1 =[];
+    
+    // checking user in cart collection
+    await cart.find({ user_id: req.params.id })
+    .then(async(response)=>{
+        let [obj] = response;
+        // assigning object to data #destructing
+        let [data]= response
+        // assigning product array to data1
+        data1 = data.product
+        // mapping data1 to get single product_id         
+        await Promise.all(data1.map((id) => {
+            return products.findOne({ _id: id })
+                .then(product => {
+                    // push product object to cdata[]
+                    cdata.push(product)
+                })
+        }))
+        res.send({'data':cdata,'tPrice':obj.tPrice});
     })
 
 })
 
+
 // cart delete
-router.post("/cart",(req,res)=>{
+router.post("/cart/delete",async(req,res)=>{
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
-    cart.updateOne({user_id:req.body.userID},
-        {
-            $pull: { product: [req.body.index] }
+    let { tPrice,pId,userID } = req.body;
+    // init product price
+    let pPrice =0;
+    await products.findById(pId)
+        .then((data)=>{
+            // find product price from db
+           pPrice= data.price;
         })
-   
+    // reduce the found product price from total
+    tPriceU=tPrice-pPrice;
+    // user match,delete product,update price
+    cart.updateMany({user_id:userID},
+        {
+            $pull: {product:{$in:[`${pId}`]}},
+            $set: {tPrice:tPriceU}
+        },
+        {
+            multi: true
+        })
+        .then()  //then returns the promise 
+})
+
+// cart delete all
+router.post('/cart/deleteall',(req,res)=>{
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    let userID = req.body.userID;
+
+    cart.updateMany({user_id:userID},
+    {
+        $set:{
+            product:[],
+            tPrice:0
+        }
+
+    },
+    {
+        multi:true
+    })
+    .then()
 })
 
 

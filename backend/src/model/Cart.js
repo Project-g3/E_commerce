@@ -15,6 +15,7 @@ const CartItems = new schema({
     start_date: String,
     end_date: String,
     payment_status: Boolean,
+    tPrice:Number
 });
 
 const Cart = mongoose.model("Cart",CartItems);
