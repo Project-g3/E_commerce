@@ -27,8 +27,8 @@ export class CartService {
   }
 
   // remove single item
-  removeCart(pId: any, userID: any) {
-    return this.http.post(`http://localhost:3210/cart/delete`, { 'pId': pId, 'userID': userID })
+  removeCart(tPrice:number,pId: any, userID: any) {
+    return this.http.post(`http://localhost:3210/cart/delete`, { 'tPrice':tPrice,'pId': pId, 'userID': userID })
       .subscribe()
   }
   // remove all items
