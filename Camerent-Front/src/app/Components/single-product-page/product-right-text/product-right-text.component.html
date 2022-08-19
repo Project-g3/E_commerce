@@ -17,8 +17,8 @@
     
     <button class="shedulebtn btn bg-primary text-white mt-5 " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
         Rent the Product for {{pPrice|currency:'INR':'symbol':'1.0-0'}}/day</button>
-    <div class="collapse" style="z-index: 3;" id="collapseExample">
-        <div class="card card-body">
+    <div class="collapse"  id="collapseExample">
+        <div class="card card-body" style="z-index: 50;">
           <h3 class="title">Schedule the pickup </h3>
           <mat-divider></mat-divider>
           <div class="row">
@@ -26,7 +26,7 @@
                 <label for="">Shedule a pickup date</label>
             </div>
             <div class="col mb-2" >
-                <input type="date"  class="rounded"  [(ngModel)]="startDate" name="" id="" class="w-100">
+                <input type="date"  class="rounded"  [(ngModel)]="startDate" min="{{todayDate}}" max="{{endDate}}" name="" id="" class="w-100">
             </div>
           </div>
           <div class="row">
@@ -34,7 +34,22 @@
                 <label for="">Shedule a return date</label>
             </div>
             <div class="col">
-                <input type="date"  class="rounded"  [(ngModel)]="endDate"  name="" id="" class="w-100">
+                <input type="date"  class="rounded"  [(ngModel)]="endDate"  min="{{startDate}}"  name="" id="" class="w-100">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <a (click)="checkRent()" class="text-primary" style="cursor:pointer;"
+                data-toggle="collapse" href="#rentCheck" role="button" aria-expanded="false" aria-controls="rentCheck">
+                    Check the Rent for the selected dates
+                </a>
+                <div class="collapse" id="rentCheck">
+                    <div class="card card-body" style="z-index: 50;">
+                        <p class="font-weight-bold">Rent for the Selected dates is : {{calculatedRent|currency:'INR':'symbol':'1.0-0'}} </p>
+                        <p>Rent : {{pPrice|currency:'INR':'symbol':'1.0-0'}}/day </p>
+                        <p class="text-danger"><b>Note : </b> The product should be returned before 9:00 PM of EndDate : {{endDate | date:'fullDate'}} </p>
+                    </div>
+                </div>
             </div>
           </div>
           <div class="row ">

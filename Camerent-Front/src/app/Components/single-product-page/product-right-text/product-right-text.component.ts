@@ -14,18 +14,69 @@ export class ProductRightTextComponent implements OnInit {
   @Input()  pShortDesc : any;
   @Input()  pPrice : any;
 
+  todayDate :any;
   startDate : any;
   endDate : any;
-
+  calculatedRent :any;
+  minEndDate:any;
 
   abc(){
     console.log("start date : "+this.startDate);
     console.log("end date : "+this.endDate);
-    this.cartService.addcart(this.pId,this.pPrice);
+    // this.cartService.addcart(this.pId,this.pPrice);
+    // checking if the input fields are empty or not
+    if (this.startDate != undefined && this.endDate != undefined) {
+      // checking the differnce
+      let diff = this.dateDiff();
+      this.calculatedRent = diff * this.pPrice;
+      console.log('this will be the rent for the selected dates : ' + this.calculatedRent);
+    }
+    
+  }
+
+  // function for converting date to YYYY-MM-dd for today date
+  toDay(){
+    this.todayDate = new Date();
+    let year =  this.todayDate.getFullYear();
+    let month =  this.todayDate.getMonth() + 1;
+    let dt =  this.todayDate.getDate();
+
+    if (dt < 10) {
+      dt = '0' + dt;
+    }
+    if (month < 10) {
+      month = '0' + month;
+    }
+    this.todayDate = year + '-' + month + '-' + dt;
+    console.log(this.todayDate);
+    
+  }
+
+  // Function for date differce
+  dateDiff() {
+    var date1 = new Date(this.startDate);
+    var date2 = new Date(this.endDate);
+
+    // To calculate the time difference of two dates
+    var Difference_In_Time = date2.getTime() - date1.getTime();
+
+    // To calculate the no. of days between two dates
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
+    //To display the final no. of days (result)
+    return Difference_In_Days+1;
+  }
+
+  checkRent(){
+    let diff = this.dateDiff();
+    this.calculatedRent = diff * this.pPrice;
+    console.log('this will be the rent for the selected dates : '+this.calculatedRent);
   }
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+  //calling the date function 
+  this.toDay();
     
   }
 
