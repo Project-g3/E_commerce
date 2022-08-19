@@ -132,14 +132,27 @@ router.get("/cart/:id",async(req, res, next) => {
 
 
 // cart delete
-router.post("/cart/delete",(req,res)=>{
+router.post("/cart/delete",async(req,res)=>{
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
-    let { pId,userID } = req.body;
-    // user match
-    cart.updateOne({user_id:userID},
+    let { tPrice,pId,userID } = req.body;
+    // init product price
+    let pPrice =0;
+    await products.findById(pId)
+        .then((data)=>{
+            // find product price from db
+           pPrice= data.price;
+        })
+    // reduce the found product price from total
+    tPriceU=tPrice-pPrice;
+    // user match,delete product,update price
+    cart.updateMany({user_id:userID},
         {
-            $pull: {product:{$in:[`${pId}`]}}
+            $pull: {product:{$in:[`${pId}`]}},
+            $set: {tPrice:tPriceU}
+        },
+        {
+            multi: true
         })
         .then()  //then returns the promise 
 })
@@ -150,11 +163,11 @@ router.post('/cart/deleteall',(req,res)=>{
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
     let userID = req.body.userID;
 
-    cart.updateOne({user_id:userID},
+    cart.updateMany({user_id:userID},
     {
         $set:{
             product:[],
-            tprice:0
+            tPrice:0
         }
 
     },

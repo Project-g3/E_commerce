@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { CartService } from 'src/app/Services/cart/cart.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CartService } from 'src/app/Services/cart/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit,DoCheck {
   public products: any = [];
   public tPrice !: number;
 
@@ -29,17 +29,27 @@ export class CartComponent implements OnInit {
     this.products.map(async(a: any, index: any) => {
       if (item.id === a.id) {
         this.products.splice(index, 1);
-        // reqst to dlt item in database
-        await this.cartService.removeCart(item._id,localStorage.getItem("userID"))
+        // reqst to dlt item in database,reduce total price 
+        await this.cartService.removeCart(this.tPrice,item._id,localStorage.getItem("userID"))
       }
     })
 
   }
+
+  // empty cart and  price
   emptycart(){
     // clearing product array
     this.products = []
     // database
     this.cartService.removeAllCart(localStorage.getItem("userID"));
+  }
+
+  // update total price after every change
+  ngDoCheck(){
+       this.cartService.getCartData(localStorage.getItem("userID"))
+      .subscribe((res: any) => {
+        this.tPrice = res.tPrice;
+      })
   }
 
   }
