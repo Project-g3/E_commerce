@@ -26,13 +26,13 @@ export class HttpService {
   }
 
   getUser(id:any){
-    return this.http.get(`http://localhost:3210/getUser/${id}`)
+    return this.http.get(`http://localhost:3210/user/getUser/${id}`)
   }
 
 
   // update account
   updateAcc(data: any) {
-    this.http.post('http://localhost:3210/update', { 'newData': data })
+    this.http.post('http://localhost:3210/user/update', { 'newData': data ,'userID':localStorage.getItem('userID')})
       .subscribe()
   }
 

@@ -53,16 +53,12 @@ export class AccountSettingsComponent implements OnInit {
     phoneNumber:this.phoneNumber
   })
 
-  newDetails = new FormGroup({
-    name: this.name,
-    email: this.email,
-    age: this.age,
-    password: this.password,
-    phoneNumber: this.phoneNumber
-  });
 
   async change(){
-    await this.http.updateAcc(this.newDetails.value)
+    await this.http.updateAcc(this.newData.value)
+    setTimeout(() => {
+      alert("Changed")
+    },1000);
   }
 
 }
