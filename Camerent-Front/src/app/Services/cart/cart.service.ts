@@ -10,11 +10,12 @@ export class CartService {
   constructor(private http:HttpClient) { }
 
   // add to cart
-  addcart(pID: any,pPrice:any) {
+  addcart(pID: any, calculatedRent:any,pNo:any) {
     let cart = {
       "userID": localStorage.getItem('userID'),
       "pID": pID,
-      "tPrice":pPrice
+      "calculatedRent": calculatedRent,
+      "count":pNo
     }
     // to be updated in database
     this.http.post('http://localhost:3210/cart', { 'cart': cart })
@@ -27,8 +28,8 @@ export class CartService {
   }
 
   // remove single item
-  removeCart(tPrice:number,pId: any, userID: any) {
-    return this.http.post(`http://localhost:3210/cart/delete`, { 'tPrice':tPrice,'pId': pId, 'userID': userID })
+  removeCart(count:any,tPrice:number,pId: any, userID: any) {
+    return this.http.post(`http://localhost:3210/cart/delete`, { 'count':count,'tPrice':tPrice,'pId': pId, 'userID': userID })
       .subscribe()
   }
   // remove all items

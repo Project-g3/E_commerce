@@ -6,9 +6,10 @@ import { CartService } from 'src/app/Services/cart/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit,DoCheck {
+export class CartComponent implements OnInit{
   public products: any = [];
   public tPrice !: number;
+  public count :any=[];
 
   constructor(private cartService : CartService,) { }
 
@@ -20,17 +21,23 @@ export class CartComponent implements OnInit,DoCheck {
         this.products = res.data;
         // total price
         this.tPrice = res.tPrice;
+        // count for no.of days
+        this.count=res.count
+        // console.log(this.count)
       }) 
   }
   
   // remove single item
-  removeItem(item: any){
+  removeItem(item: any,ptPrice:any,count:any){
     // maping product array with current item passed to delete
     this.products.map(async(a: any, index: any) => {
       if (item.id === a.id) {
         this.products.splice(index, 1);
+        this.tPrice=this.tPrice-ptPrice;
+        console.log(this.tPrice)
+        // console.log(ptPrice)
         // reqst to dlt item in database,reduce total price 
-        await this.cartService.removeCart(this.tPrice,item._id,localStorage.getItem("userID"))
+        await this.cartService.removeCart(count,this.tPrice,item._id,localStorage.getItem("userID"))
       }
     })
 
@@ -45,12 +52,12 @@ export class CartComponent implements OnInit,DoCheck {
   }
 
   // update total price after every change
-  ngDoCheck(){
-       this.cartService.getCartData(localStorage.getItem("userID"))
-      .subscribe((res: any) => {
-        this.tPrice = res.tPrice;
-      })
-  }
+  // ngDoCheck(){
+  //      this.cartService.getCartData(localStorage.getItem("userID"))
+  //     .subscribe((res: any) => {
+  //       this.tPrice = res.tPrice;
+  //     })
+  // }
 
   }
 

@@ -20,6 +20,7 @@ export class ProductRightTextComponent implements OnInit {
   calculatedRent :any;
   minEndDate:any;
   RentedDaysCount:any;
+  diff:any;
 
   // Add to cart function
   abc(){
@@ -29,13 +30,13 @@ export class ProductRightTextComponent implements OnInit {
     // checking if the input fields are empty or not
     if (this.startDate != undefined && this.endDate != undefined) {
       // checking the differnce
-      let diff = this.dateDiff();
-      this.calculatedRent = diff * this.pPrice;
+      this.diff = this.dateDiff();
+      this.calculatedRent = this.diff * this.pPrice;
       console.log('this will be the rent for the selected dates : ' + this.calculatedRent);
     }
 
     // Adding to cart
-    this.cartService.addcart(this.pId,this.pPrice);
+    this.cartService.addcart(this.pId,this.calculatedRent,this.diff);
     
   }
 
