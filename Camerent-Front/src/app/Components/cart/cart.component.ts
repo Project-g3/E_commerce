@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/Services/cart/cart.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class CartComponent implements OnInit{
         // total price
         this.tPrice = res.tPrice;
         // count for no.of days
-        this.count=res.count
+        this.count=res.count;
         // console.log(this.count)
       }) 
   }
