@@ -25,4 +25,15 @@ export class HttpService {
       .subscribe()
   }
 
+  getUser(id:any){
+    return this.http.get(`http://localhost:3210/getUser/${id}`)
+  }
+
+
+  // update account
+  updateAcc(data: any) {
+    this.http.post('http://localhost:3210/update', { 'newData': data })
+      .subscribe()
+  }
+
 }

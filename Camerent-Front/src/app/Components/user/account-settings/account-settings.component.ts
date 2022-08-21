@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'; //container for forms
+import { HttpService } from 'src/app/Services/http/http.service';
 
 @Component({
   selector: 'app-account-settings',
@@ -7,12 +8,17 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'; //container
   styleUrls: ['./account-settings.component.css']
 })
 export class AccountSettingsComponent implements OnInit {
+  public userDetails:any ;
 
-  constructor() { }
+  constructor(private http:HttpService) { }
 
   ngOnInit(): void {
+    this.http.getUser(localStorage.getItem('userID'))
+    .subscribe((res)=>{
+      this.userDetails = res;
+    })
   }
-
+  
   // create new form fields
   name = new FormControl('', [
     //validators
@@ -39,7 +45,7 @@ export class AccountSettingsComponent implements OnInit {
     Validators.maxLength(10)
   ]);
 
-  userForm = new FormGroup({
+   newData = new FormGroup({
     name: this.name,
     email:this.email,
     password:this.password,
@@ -47,8 +53,16 @@ export class AccountSettingsComponent implements OnInit {
     phoneNumber:this.phoneNumber
   })
 
-  change(){
-    
+  newDetails = new FormGroup({
+    name: this.name,
+    email: this.email,
+    age: this.age,
+    password: this.password,
+    phoneNumber: this.phoneNumber
+  });
+
+  async change(){
+    await this.http.updateAcc(this.newDetails.value)
   }
 
 }

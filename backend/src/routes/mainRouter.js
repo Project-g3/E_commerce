@@ -68,6 +68,14 @@ router.post('/register', (req, res, next) => {
     newUser.save();
 });
 
+// updte user
+router.post('/update',(req,res)=>{
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    let newData = req.body.newData;
+    console.log(newData);
+})
+
 
 
 //add to Cart
@@ -192,10 +200,16 @@ router.post('/cart/deleteall',(req,res)=>{
 })
 
 
-/**
-* -------------- GET ROUTES ----------------
-*/
 
+router.get('/getUser/:id', (req, res) => {
+    res.header("Access-Control-Allow-Orgin", "*");
+    res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
+    let id = req.params.id;
+    user.findById(id)
+    .then((response)=>{
+        res.send(response)
+    })    
+})
 
 router.get('/login-success', isAuth,(req, res, next) => {
     res.header("Access-Control-Allow-Orgin", "*");
