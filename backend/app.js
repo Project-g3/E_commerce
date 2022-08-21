@@ -2,9 +2,7 @@ const express = require('express');
 const cors = require('cors');
 // mainRouter
 var routes = require('./src/routes/mainRouter');
-//setting routes const
-const adminRoute = require('./src/routes/adminRoute');
-
+// ne express
 const app = new express();
 
 // test env file
@@ -19,9 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 // Imports all of the routes from ./routes
 app.use(routes);
-
-// Routing
-app.use('/admin-dash',adminRoute);
 
 app.listen(3210, () => {
   console.log("app running on http://localhost:3210/")
