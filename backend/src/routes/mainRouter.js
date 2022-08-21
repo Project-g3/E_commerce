@@ -78,19 +78,30 @@ router.post("/cart",(req,res,next)=>{
     
     cart.findOne({user_id:cartData.userID})
     .then(async (data)=>{
+        // checking if document for a userid exist 
         if(!data){
+            // saving new document 
             let newItem = new cart({
                 user_id:cartData.userID,
-                product:[cartData.pID],
-                tPrice: cartData.tPrice
+                product:[{
+                    product_id: cartData.pID,
+                    count: cartData.count
+                }],
+                tPrice: cartData.calculatedRent
             })
             newItem.save();
         }else{
             // tPrice from database + incoming tPrice
-            let tPrice = data.tPrice + cartData.tPrice;
+            let tPrice = data.tPrice + cartData.calculatedRent;
+            // updating the document
             await cart.findOneAndUpdate({user_id:cartData.userID},
             {
-                $push:{product:cartData.pID},
+                $addToSet: {
+                    product: [{
+                        product_id: cartData.pID,
+                        count: cartData.count
+                    }]
+                },
                 $set:{tPrice:tPrice}
             },
             {
@@ -105,27 +116,32 @@ router.post("/cart",(req,res,next)=>{
 router.get("/cart/:id",async(req, res, next) => {
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
-    // to hold final data
-    var cdata = [];
-    let data1 =[];
+    
+    
     
     // checking user in cart collection
     await cart.find({ user_id: req.params.id })
     .then(async(response)=>{
+        // to hold final data
+        let cdata = new Array;
+        // no.of days
+        let count =[]
+        // response object
         let [obj] = response;
         // assigning object to data #destructing
-        let [data]= response
-        // assigning product array to data1
-        data1 = data.product
-        // mapping data1 to get single product_id         
-        await Promise.all(data1.map((id) => {
-            return products.findOne({ _id: id })
+        let data= obj.product  
+
+        await Promise.all(data.map((id) => {
+            // no of days array
+            count.push(id.count)
+            return products.findOne({ _id: id.product_id })
                 .then(product => {
                     // push product object to cdata[]
                     cdata.push(product)
                 })
         }))
-        res.send({'data':cdata,'tPrice':obj.tPrice});
+        // console.log(count)
+        res.send({'data':cdata,'tPrice':obj.tPrice,'count':count});
     })
 
 })
@@ -135,21 +151,19 @@ router.get("/cart/:id",async(req, res, next) => {
 router.post("/cart/delete",async(req,res)=>{
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
-    let { tPrice,pId,userID } = req.body;
-    // init product price
-    let pPrice =0;
-    await products.findById(pId)
-        .then((data)=>{
-            // find product price from db
-           pPrice= data.price;
-        })
-    // reduce the found product price from total
-    tPriceU=tPrice-pPrice;
+    let { count,tPrice,pId,userID } = req.body;
+
     // user match,delete product,update price
     cart.updateMany({user_id:userID},
         {
-            $pull: {product:{$in:[`${pId}`]}},
-            $set: {tPrice:tPriceU}
+            $pull: {product:{
+                'product_id':pId,
+                'count':count
+            }},
+            $set: {
+                // product:[{count:0}],
+                tPrice:tPrice
+            }
         },
         {
             multi: true
