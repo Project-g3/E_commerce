@@ -188,3 +188,7 @@ p{color: gray;}
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+.img-box img:hover{
+	transform: scale(1.1);
+
+}
