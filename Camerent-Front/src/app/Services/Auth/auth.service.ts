@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  serverUrl = 'https://camerent-g3-backend.herokuapp.com/';
+  serverUrl = 'https://camerent-g3-backend.herokuapp.com';
   constructor(private http:HttpClient, private _router:Router) { }
   // login call
   loginUser(data:any){
