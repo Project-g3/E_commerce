@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 const genPassword = require('../lib/passwordUtils').genPassword;
 const validPassword = require('../lib/passwordUtils').validPassword;
 const user = require("../model/UserModel");
-const isAuth= require("./authMiddleware").isAuth;
 const adminRoute = require('./adminRoute');
 const cartRoute = require("./cartRoute")
 const userRoute = require("./userRouter")
@@ -12,7 +11,7 @@ const auth = require("./authMiddleware").isAuth
 
 
 // Routing
-router.use('/admin-dash',auth, adminRoute);
+router.use('/admin-dash',adminRoute);
 router.use('/cart',auth,cartRoute);
 router.use('/user',auth,userRoute);
 
@@ -29,13 +28,12 @@ router.post('/login', (req, res, next) => {
     .then((user)=>{
         // no user
         if(!user){
-            res.status(401).send('invald User')
+            res.send({invalid:'invald Credential'})
         }
         // valid function is checked with the hash and salt-password 
-        if (!validPassword(userData.password, user.hash, user.salt))
+        else if(!validPassword(userData.password, user.hash, user.salt))
         {
-            res.status(401).send('invald User')
-
+            res.send({ invalid: 'invald Credential' })
         }
         else
         {   
@@ -43,7 +41,7 @@ router.post('/login', (req, res, next) => {
             let isadmin = user.admin;
             let userID=user._id;
             let user_name=user.name;
-            // fayload for jwt
+            // payload for jwt
             let payload = {subject:userData.email+userData.password}
             // token creation useing sign function
             let token = jwt.sign(payload,'secretKey')
@@ -57,7 +55,6 @@ router.post('/login', (req, res, next) => {
 router.post('/register', (req, res, next) => {
     res.header("Access-Control-Allow-Orgin", "*");
     res.header("Access-Control-Allow-Methods:GET,POST,PATCH,PUT,DELETE,OPTION");
-    console.log(req.body);
     const saltHash = genPassword(req.body.user.password);
 
     var salt = saltHash.salt;

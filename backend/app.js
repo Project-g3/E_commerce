@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 // mainRouter
 var routes = require('./src/routes/mainRouter');
-// ne express
+// new express
 const app = new express();
 
 // test env file
