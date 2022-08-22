@@ -29,7 +29,7 @@ export class CartService {
 
   // remove single item
   removeCart(count:any,tPrice:number,pId: any, userID: any) {
-    return this.http.post(this.serverUrl+`/delete`, { 'count':count,'tPrice':tPrice,'pId': pId, 'userID': userID })
+    return this.http.post(this.serverUrl+`/cart/delete`, { 'count':count,'tPrice':tPrice,'pId': pId, 'userID': userID })
       .subscribe()
   }
   // remove all items
