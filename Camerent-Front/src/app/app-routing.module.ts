@@ -21,6 +21,7 @@ import { AddressComponent } from './Components/user/address/address.component';
 import { MyOrdersComponent } from './Components/user/my-orders/my-orders.component';
 import { ProofVeriComponent } from './Components/user/proof-veri/proof-veri.component';
 import { UserSideComponent } from './Components/user/user-side/user-side.component';
+import { PaymentComponent } from './Components/user/payment/payment.component';
 
 const routes: Routes = [
   {
@@ -91,14 +92,11 @@ const routes: Routes = [
       title: 'Camerent-Admin-Products'
     }
   ]},
-
-
   {
     path:'terms',
     component:TermsComponent,
     title:'Camerent-T&C'
   },
-
   {
     path:'about',
     component:AboutusComponent,
@@ -129,6 +127,11 @@ const routes: Routes = [
         path: 'proof-vali', 
         component: ProofVeriComponent,
         title: 'Camerent-User Proof'
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent,
+        title: 'Camerent-User Payment'
       },
   ]},
   // wildcard route - basic used for 404
