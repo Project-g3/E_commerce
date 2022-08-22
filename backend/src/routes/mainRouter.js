@@ -3,6 +3,7 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const genPassword = require('../lib/passwordUtils').genPassword;
 const validPassword = require('../lib/passwordUtils').validPassword;
+const cors = require('cors');
 const user = require("../model/UserModel");
 const isAuth= require("./authMiddleware").isAuth;
 const adminRoute = require('./adminRoute');
@@ -16,6 +17,7 @@ router.use('/admin-dash', adminRoute);
 router.use('/cart',auth,cartRoute);
 router.use('/user',auth,userRoute);
 
+router.use(cors());
 
 // Login 
 router.post('/login', (req, res, next) => {
