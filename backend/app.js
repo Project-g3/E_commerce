@@ -6,6 +6,7 @@ var routes = require('./src/routes/mainRouter');
 const adminRoute = require('./src/routes/adminRoute');
 
 const app = new express();
+const port = process.env.PORT || 3210;
 
 // test env file
 require("dotenv").config();
@@ -23,6 +24,6 @@ app.use(routes);
 // Routing
 app.use('/admin-dash',adminRoute);
 
-app.listen(3210, () => {
-  console.log("app running on http://localhost:3210/")
+app.listen(port, () => {
+  console.log("app running on "+port);
 })
