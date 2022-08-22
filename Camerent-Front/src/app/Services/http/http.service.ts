@@ -21,8 +21,8 @@ export class HttpService {
   
   // register new account
   registerAcc(data:any){
-    this.http.post('http://localhost:3210/register',{'user': data})
-      .subscribe()
+    return this.http.post('http://localhost:3210/register',{'user': data})
+    .subscribe()
   }
 
   getUser(id:any){

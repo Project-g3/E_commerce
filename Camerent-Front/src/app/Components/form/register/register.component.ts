@@ -33,6 +33,7 @@ export class RegisterComponent {
     ]);
     confirm_password= new FormControl('',[
       Validators.required,
+      Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)
     ]);
     phoneNumber= new FormControl('',[
       Validators.required,
@@ -50,21 +51,27 @@ export class RegisterComponent {
     email:this.email,
     age:this.age,
     password:this.password,
-    phoneNumber:this.phoneNumber 
+    phoneNumber:this.phoneNumber, 
+    confirmPassword:this.confirm_password
   });
 
    async register(){
-    this.showAlert = true;
-//  registering user
-    await this.http.registerAcc(this.registerForm.value)
-    setTimeout(() => {
-      // close modal
-      this.modal.toggleModal('auth');
-      // resetting form
-      this.registerForm.reset();
-      this.router.navigate(['home'])
-      // resetting alert
-      this.showAlert = false;
-    }, 3000);
+     if(this.registerForm.value.password===this.registerForm.value.confirmPassword){
+      this.showAlert = true;
+      //  registering user
+      await this.http.registerAcc(this.registerForm.value)
+      setTimeout(() => {
+        // close modal
+        this.modal.toggleModal('auth');
+        // resetting form
+        this.registerForm.reset();
+        this.router.navigate(['home'])
+        // resetting alert
+        this.showAlert = false;
+      }, 3000);
+    }else{
+      alert("Password do not match!")
+    }
+    
   }
 }
