@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  serverUrl = 'https://camerent-g3-backend.herokuapp.com/';
+  serverUrl = 'https://camerent-g3-backend.herokuapp.com';
   constructor(public http:HttpClient) { }
 
 

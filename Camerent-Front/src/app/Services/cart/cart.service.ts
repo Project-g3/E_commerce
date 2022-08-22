@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
 
-  serverUrl = 'https://camerent-g3-backend.herokuapp.com/';
+  serverUrl = 'https://camerent-g3-backend.herokuapp.com';
   constructor(private http:HttpClient) { }
 
   // add to cart
