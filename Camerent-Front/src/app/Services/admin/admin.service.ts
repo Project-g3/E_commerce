@@ -5,23 +5,23 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AdminService {
-
+  serverUrl = 'https://camerent-g3-backend.herokuapp.com/';
   constructor(public adminService:HttpClient) { }
 
   // add product to database 
   addProduct(data:any)
   {
-    this.adminService.post('http://localhost:3210/admin-dash/addProducts',{'product':data})
+    this.adminService.post(this.serverUrl+'/addProducts',{'product':data})
     .subscribe();
   }
   // Update product from data base
   updateProduct(data:any){
-    this.adminService.post('http://localhost:3210/admin-dash/updateProduct',{'product':data})
+    this.adminService.post(this.serverUrl+'/updateProduct',{'product':data})
     .subscribe();
   }
   // delete product from database
   deleteProduct(pId:any){
-    this.adminService.post('http://localhost:3210/admin-dash/deleteProduct',{'pId':pId})
+    this.adminService.post(this.serverUrl+'/deleteProduct',{'pId':pId})
     .subscribe();
   }
 
