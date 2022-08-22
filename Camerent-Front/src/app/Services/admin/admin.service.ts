@@ -29,13 +29,13 @@ export class AdminService {
 
   // For getting users from backend
   getCustomers(){
-    return this.adminService.get('http://localhost:3210/admin-dash/customers');
+    return this.adminService.get(this.serverUrl+'/admin-dash/customers');
   }
 
 
   // For deleting user/customer from database
   deleteUser(id:any){
-   return this.adminService.post('http://localhost:3210/admin-dash/deleteUser',{userid:id})
+   return this.adminService.post(this.serverUrl+'/admin-dash/deleteUser',{userid:id})
    .subscribe();
   }
 
