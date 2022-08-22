@@ -12,7 +12,7 @@ p{
 .card{
     height: 350px;
 }
-.card-title{
+.card-title,p{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

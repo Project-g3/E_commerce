@@ -4,6 +4,7 @@ const cors = require('cors');
 var routes = require('./src/routes/mainRouter');
 // new express
 const app = new express();
+const port = process.env.PORT || 3210;
 
 // test env file
 require("dotenv").config();
@@ -18,6 +19,9 @@ app.use(cors());
 // Imports all of the routes from ./routes
 app.use(routes);
 
-app.listen(3210, () => {
-  console.log("app running on http://localhost:3210/")
+// // Routing
+// app.use('/admin-dash',adminRoute);
+
+app.listen(port, () => {
+  console.log("app running on "+port);
 })
