@@ -1,6 +1,9 @@
 const userRouter =require("express").Router();
 const user = require("../model/UserModel");
 const genPassword = require('../lib/passwordUtils').genPassword;
+const cors = require('cors');
+
+userRouter.use(cors());
 
 // updte user
 userRouter.post('/update', (req, res) => {

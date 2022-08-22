@@ -1,8 +1,11 @@
 const express = require("express");
 const cartRouter = express.Router();
+const cors = require('cors');
 const cart = require("../model/Cart");
 const products = require("../model/products");
 
+
+cartRouter.use(cors());
 
 //add to Cart
 cartRouter.post("/", (req, res, next) => {

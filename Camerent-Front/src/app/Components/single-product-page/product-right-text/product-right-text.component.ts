@@ -24,15 +24,15 @@ export class ProductRightTextComponent implements OnInit {
 
   // Add to cart function
   abc(){
-    console.log("start date : "+this.startDate);
-    console.log("end date : "+this.endDate);
+    // console.log("start date : "+this.startDate);
+    // console.log("end date : "+this.endDate);
     
     // checking if the input fields are empty or not
     if (this.startDate != undefined && this.endDate != undefined) {
       // checking the differnce
       this.diff = this.dateDiff();
       this.calculatedRent = this.diff * this.pPrice;
-      console.log('this will be the rent for the selected dates : ' + this.calculatedRent);
+      // console.log('this will be the rent for the selected dates : ' + this.calculatedRent);
     }
 
     // Adding to cart
@@ -54,7 +54,7 @@ export class ProductRightTextComponent implements OnInit {
       month = '0' + month;
     }
     this.todayDate = year + '-' + month + '-' + dt;
-    console.log(this.todayDate);
+    // console.log(this.todayDate);
     
   }
 
