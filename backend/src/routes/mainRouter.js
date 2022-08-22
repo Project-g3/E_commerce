@@ -11,6 +11,7 @@ const auth = require("./authMiddleware").isAuth
 
 
 // Routing
+
 router.use('/admin-dash',adminRoute);
 router.use('/cart',auth,cartRoute);
 router.use('/user',auth,userRoute);
