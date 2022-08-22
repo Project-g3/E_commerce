@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AdminService {
-  serverUrl = 'https://camerent-g3-backend.herokuapp.com/';
+  serverUrl = 'https://camerent-g3-backend.herokuapp.com';
   constructor(public adminService:HttpClient) { }
 
   // add product to database 
